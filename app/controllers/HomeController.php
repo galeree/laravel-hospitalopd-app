@@ -15,7 +15,6 @@ class HomeController extends BaseController {
 	|
 	*/
 	public function getIndex() {
-		$aa = 'abck'
 		return View::make('home.index');
 	}
 
