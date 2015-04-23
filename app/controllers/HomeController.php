@@ -14,9 +14,18 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
 	public function getIndex() {
+		$aa = 'abck'
 		return View::make('home.index');
+	}
+
+	public function postLogin() {
+		$role = Input::get('role');
+		$url = '';
+		if($role == 'patient') $url = '/patient';
+		else $url = '/doctor';
+		return Redirect::to($url);
+		//return Input::all();
 	}
 
 }

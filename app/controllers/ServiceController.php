@@ -1,6 +1,6 @@
 <?php
 
-class DoctorController extends BaseController {
+class ServiceController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -16,15 +16,11 @@ class DoctorController extends BaseController {
 	*/
 
 	public function getIndex() {
-		return View::make('doctor.index');
+		return View::make('patient/service.index');
 	}
 
-	public function getProfile() {
-		return View::make('doctor.profile');
-	}
-
-	public function postLogout() {
-		return Redirect::to('/');
+	public function getOrder() {
+		return View::make('doctor/service.order');
 	}
 
 }

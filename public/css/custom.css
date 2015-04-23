@@ -1,3 +1,95 @@
 .custom .jumbotron {
   background-color: white;
+  padding-bottom: 0.2%;
+  padding-top: 0.2%;
+}
+
+.centercontainer {
+	text-align: center;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+label {
+	text-transform: uppercase;
+}
+
+.login {
+	background-color: rgba(245, 245, 245, 0.95);
+	padding: 4%;
+	margin-bottom: 7%;
+	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-group {
+	margin-bottom: 7%;
+}
+
+.submit {
+	padding-top: 3%;
+}
+
+/* Navbar */
+.menu.navbar-default {
+	background-color: #2ecc71;
+}
+
+.navbar-nav li a{
+	text-transform: uppercase;
+}
+
+.menu.navbar-default .navbar-nav>li>a {
+	color: white;
+}
+
+.menu.navbar-default .navbar-nav>li>a:hover {
+	color: #ecf0f1;
+}
+
+.menu.navbar-default .navbar-nav>.active>a {
+	background-color: inherit;
+	color: #ecf0f1;
+}
+
+.btn-default.logout {
+	background-color: inherit;
+	border: 0px;
+	color: white;
+}
+
+.btn-default.logout:hover {
+	color: #ecf0f1;
+}
+
+.logout .fa {
+	line-height: 1.3em;
+}
+
+/* Patient layout */
+
+.patient {
+	padding-top: 6%;
+}
+
+.option {
+	padding-top: 8%;
+	background-color: white;
+	padding-bottom: 5%;
+}
+
+#item .fa {
+	font-size: 10rem;
+	padding: 3%;
+}
+
+#item:hover {
+	color: #95a5a6;
+}
+
+/* Profile layout */
+.profile {
+	border: solid 1px #95a5a6;
+	border-radius: 5px;
 }

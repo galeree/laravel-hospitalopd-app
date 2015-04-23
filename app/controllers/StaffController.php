@@ -15,21 +15,9 @@ class StaffController extends BaseController {
 	|
 	*/
 
-	public function getStaffLogin()
+	public function getIndex()
 	{
-		return View::make('staff.stafflogin');
-	}
-
-	public function getStaffQueue() {
-		return View::make('staff.staffq');
-	}
-
-	public function getNextQueue() {
-		return View::make('staff.nextqueue');
-	}
-
-	public function getShowQueue() {
-		return View::make('staff.showqueue');
+		return true;
 	}
 
 }

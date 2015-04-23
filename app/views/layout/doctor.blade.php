@@ -18,10 +18,38 @@
 	<!-- Title for each page -->
 	@yield('title')
 </head>
-<body class="custom">
-	<div class="container jumbotron">
-	    <img src="/img/logo.png" class="img-responsive center-block"></img>
+<body class="patient">
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" 
+					class="navbar-toggle collapsed" 
+					data-toggle="collapse" 
+					data-target="#menu">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		    </button>
+			<a href="/doctor" class="navbar-brand">Doctor</a>
+		</div>
+		<div class="collapse navbar-collapse" id="menu">
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/doctor">Home</a></li>
+				<li class=""><a href="/doctor/profile">Profile</a></li>
+				<li class=""><a href="/record">Record</a></li>
+				<li class=""><a href="/service/order">Service</a></li>
+				<li class=""><a href="/appointment/main">Appointment</a></li>
+			</ul>
+			<!-- Log out -->
+			<form class="navbar-form navbar-left"
+				  method="POST"
+				  action="/doctor/logout">
+        		<button type="submit" class="btn btn-default">Log out</button>
+      		</form>
+		</div>
 	</div>
+</nav>
 	@yield('content')
         
 	{{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js') }}
@@ -29,6 +57,5 @@
     {{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js') }}
     {{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.min.js') }}
     {{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/localization/messages_TH.js') }}
-   	{{ HTML::script('js/form.js') }}
 </body>
 </html>

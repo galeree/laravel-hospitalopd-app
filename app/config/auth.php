@@ -15,15 +15,15 @@ return array(
 	|
 	*/
 	'multi' => array(
-	        'User' => array(
+	        'user' => array(
 	            'driver' => 'eloquent',
 	            'model' => 'User',
 	            'table' => 'User'
 	        ),
-	        'Doctor' => array(
+	        'doctor' => array(
 	            'driver' => 'eloquent',
 	            'model' => 'Doctor',
-	            'table' => 'users'
+	            'table' => 'Doctor'
 	        )
 	),
 	//'driver' => 'eloquent',

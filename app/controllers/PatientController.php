@@ -15,13 +15,16 @@ class PatientController extends BaseController {
 	|
 	*/
 
-	public function getUser()
-	{
-		return View::make('patient.userq');
+	public function getIndex() {
+		return View::make('patient.index');
 	}
 
-	public function getService() {
-		return View::make('patient.serviceq');
+	public function getProfile() {
+		return View::make('patient.profile');
+	}
+
+	public function postLogout() {
+		return Redirect::to('/');
 	}
 
 }
