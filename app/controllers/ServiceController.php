@@ -16,7 +16,9 @@ class ServiceController extends BaseController {
 	*/
 
 	public function getIndex() {
-		return View::make('patient/service.index');
+		$data = Session::all();
+		$username = $data['username'][0];
+		return View::make('patient/service.index', array('username' => $username));
 	}
 
 	public function getOrder() {

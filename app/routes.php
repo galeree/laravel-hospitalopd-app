@@ -41,25 +41,10 @@ Route::group(array('before' => 'patient'), function() {
 		'patient',
 		'PatientController'
 	);
+	Route::get('appointment', 'AppointmentController@getIndex');
+	Route::get('service', 'ServiceController@getIndex');
+	Route::get('reserve', 'ReserveController@getIndex');
 });
-
-// Module that control service information
-Route::controller(
-	'service',
-	'ServiceController'
-);
-
-// Module that control reserve information
-Route::controller(
-	'reserve',
-	'ReserveController'
-);
-
-// Module that control appointment information
-Route::controller(
-	'appointment',
-	'AppointmentController'
-);
 
 // Module that control doctor information
 Route::controller(

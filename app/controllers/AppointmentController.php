@@ -16,7 +16,9 @@ class AppointmentController extends BaseController {
 	*/
 
 	public function getIndex() {
-		return View::make('patient/appointment.index');
+		$data = Session::all();
+		$username = $data['username'][0];
+		return View::make('patient/appointment.index', array('username' => $username));
 	}
 
 	public function getMain() {

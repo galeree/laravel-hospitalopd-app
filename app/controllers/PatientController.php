@@ -32,9 +32,4 @@ class PatientController extends BaseController {
 												  'patient' => $patient));
 	}
 
-	/*public function postLogout() {
-		Session::flush();
-		return Redirect::to('/');
-	}*/
-
 }

@@ -56,7 +56,7 @@ class HomeController extends BaseController {
 		
 		// Get input data
 		$username = Input::get('username');
-		$password = Hash::make(Input::get('password'));
+		$password = Input::get('password');
 		$HN = Input::get('HN');
 		$firstName = Input::get('firstName');
 		$lastName = Input::get('lastName');
@@ -89,8 +89,8 @@ class HomeController extends BaseController {
 		$user->username = $username;
 		$user->password = $password;
 		$user_success = $user->save();
-		if($patient_success && $user_success) Redirect::to('/');
-		else return Redirect::to('/register');
+		if($patient_success) Redirect::to('/');
+		else return Redirect::to('register');
 	}
 
 	/* Validate method */

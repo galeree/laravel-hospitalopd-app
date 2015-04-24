@@ -16,7 +16,9 @@ class ReserveController extends BaseController {
 	*/
 
 	public function getIndex() {
-		return View::make('patient/reserve.index');
+		$data = Session::all();
+		$username = $data['username'][0];
+		return View::make('patient/reserve.index', array('username'=> $username));
 	}
 
 }
