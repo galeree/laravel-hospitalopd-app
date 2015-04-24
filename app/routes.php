@@ -12,7 +12,7 @@
 */
 
 // Route to root page
-Route::get('/', 'HomeController@getIndex');
+Route::get('/', array('before' => 'login','uses' => 'HomeController@getIndex'));
 
 // Route to register page
 Route::get('register', 'HomeController@getRegister');
