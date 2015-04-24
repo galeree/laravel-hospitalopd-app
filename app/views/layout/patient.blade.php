@@ -41,10 +41,14 @@
 				<li class=""><a href="/service">Service</a></li>
 				<li class=""><a href="/reserve">Reserve</a></li>
 			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li>{{ $username }}</li>
+			</ul>
 			<!-- Log out -->
 			<form class="navbar-form navbar-right"
 				  method="POST"
-				  action="/patient/logout">
+				  action="/logout">
         		<button type="submit" 
         				class="btn btn-default logout">
         				<i class="fa fa-sign-out"></i>

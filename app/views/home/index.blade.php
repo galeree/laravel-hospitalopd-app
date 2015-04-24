@@ -26,13 +26,6 @@
 	    		  id="patient"
 	    		  novalidate="novalidate">
 		    	<div class="form-group">
-		    		<label for="HN">HN:</label>
-		    		<input type="text"
-		    			   class="form-control"
-		    			   name="HN"
-		    			   placeholder="HN"></input>
-		    	</div>
-		    	<div class="form-group">
 		    		<label for="username">Username:</label>
 		    		<input type="text" 
 		    			   class="form-control"
@@ -48,6 +41,9 @@
 		    	</div>
 		    	<div class="centercontainer submit">
 		    		<button class="btn btn-primary" type="submit">Submit</button>
+		    	</div>
+		    	<div class="centercontainer">
+		    		<a href="/register">Register here</a>
 		    	</div>
 	    	</form>
 

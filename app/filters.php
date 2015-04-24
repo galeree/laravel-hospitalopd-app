@@ -48,6 +48,21 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('patient', function()
+{
+	$data = Session::all();
+	if(is_null($data)) {
+		return Redirect::to('/');
+	} else {
+		if($data['role']=='doctor') return Redirect::to('/');
+		$username = $data['username'][0];
+		$patient = User::where('username','=',$username)->first();
+		if(count($patient) == 0) {
+			return Redirect::to('/');
+		}
+	}
+});
+
 
 Route::filter('auth.basic', function()
 {

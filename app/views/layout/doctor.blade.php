@@ -44,7 +44,7 @@
 			<!-- Log out -->
 			<form class="navbar-form navbar-left"
 				  method="POST"
-				  action="/doctor/logout">
+				  action="/logout">
         		<button type="submit" class="btn btn-default">Log out</button>
       		</form>
 		</div>

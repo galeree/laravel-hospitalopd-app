@@ -78,7 +78,7 @@ return array(
 	|
 	*/
 
-	'key' => 'nfFb2NhSYVIwhyuPnmbnzZ6M0UV1ORmi',
+	'key' => 'flKB9VVmGsR33IGRi1yjjjGGX1GnW0SK',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -96,7 +96,7 @@ return array(
 	'providers' => array(
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
-		'Ollieread\Multiauth\MultiauthServiceProvider',
+		'Illuminate\Auth\AuthServiceProvider',
 		'Illuminate\Cache\CacheServiceProvider',
 		'Illuminate\Session\CommandsServiceProvider',
 		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
@@ -120,6 +120,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		'Illuminate\Auth\Reminders\ReminderServiceProvider'
 
 	),
 

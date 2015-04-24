@@ -14,19 +14,7 @@ return array(
 	| Supported: "database", "eloquent"
 	|
 	*/
-	'multi' => array(
-	        'user' => array(
-	            'driver' => 'eloquent',
-	            'model' => 'User',
-	            'table' => 'User'
-	        ),
-	        'doctor' => array(
-	            'driver' => 'eloquent',
-	            'model' => 'Doctor',
-	            'table' => 'Doctor'
-	        )
-	),
-	//'driver' => 'eloquent',
+	'driver' => 'eloquent',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +27,7 @@ return array(
 	|
 	*/
 
-	//'model' => 'User',
+	'model' => 'User',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -52,7 +40,7 @@ return array(
 	|
 	*/
 
-	//'table' => 'users',
+	'table' => 'User',
 
 	/*
 	|--------------------------------------------------------------------------

@@ -14,6 +14,13 @@
 // Route to root page
 Route::get('/', 'HomeController@getIndex');
 
+// Route to register page
+Route::get('register', 'HomeController@getRegister');
+Route::post('register', 'HomeController@postRegister');
+
+// Route to logout
+Route::post('logout', 'HomeController@postLogout');
+
 // Module that test database connection
 Route::get('test', function() {
 	if(DB::connection()->getDatabaseName())
@@ -28,11 +35,13 @@ Route::controller(
 	'HomeController'
 );
 
-// Module that control patient information
-Route::controller(
-	'patient',
-	'PatientController'
-);
+// Patient dashboard
+Route::group(array('before' => 'patient'), function() {
+	Route::controller(
+		'patient',
+		'PatientController'
+	);
+});
 
 // Module that control service information
 Route::controller(

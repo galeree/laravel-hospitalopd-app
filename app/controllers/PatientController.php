@@ -16,15 +16,25 @@ class PatientController extends BaseController {
 	*/
 
 	public function getIndex() {
-		return View::make('patient.index');
+		$data = Session::all();
+		$username = $data['username'][0];
+		$hn = $data['hn'][0];
+		return View::make('patient.index',array('username'=> $username,
+												'hn' => $hn));
 	}
 
 	public function getProfile() {
-		return View::make('patient.profile');
+		$data = Session::all();
+		$username = $data['username'][0];
+		$hn = $data['hn'][0];
+		$patient = Patient::where('HN','=',$hn)->first();
+		return View::make('patient.profile',array('username' => $username,
+												  'patient' => $patient));
 	}
 
-	public function postLogout() {
+	/*public function postLogout() {
+		Session::flush();
 		return Redirect::to('/');
-	}
+	}*/
 
 }
