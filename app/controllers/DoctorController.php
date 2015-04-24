@@ -16,15 +16,17 @@ class DoctorController extends BaseController {
 	*/
 
 	public function getIndex() {
-		return View::make('doctor.index');
+		$data = Session::all();
+		$doctorid = $data['doctorID'];
+		return View::make('doctor.index', array('doctorid' => $doctorid));
 	}
 
 	public function getProfile() {
-		return View::make('doctor.profile');
-	}
-
-	public function postLogout() {
-		return Redirect::to('/');
+		$data = Session::all();
+		$doctorid = $data['doctorID'];
+		$doctor = Doctor::where('doctorID','=', $doctorid)->first();
+		return View::make('doctor.profile', array('doctorid' => $doctorid,
+												  'doctor' => $doctor));
 	}
 
 }

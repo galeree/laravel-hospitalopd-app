@@ -28,8 +28,14 @@ class PatientController extends BaseController {
 		$username = $data['username'][0];
 		$hn = $data['hn'][0];
 		$patient = Patient::where('HN','=',$hn)->first();
+		$date = explode(" ",$patient['birthDate'])[0];
+		$patient['birthDate'] = $date;
+		$problems = Medproblem::where('HN','=',$hn)->get();
+		$allergies = Allergy::where('HN','=',$hn)->get();
 		return View::make('patient.profile',array('username' => $username,
-												  'patient' => $patient));
+												  'patient' => $patient,
+												  'problems' => $problems,
+												  'allergies' => $allergies));
 	}
 
 }

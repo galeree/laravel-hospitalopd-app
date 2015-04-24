@@ -46,15 +46,16 @@ Route::group(array('before' => 'patient'), function() {
 	Route::get('reserve', 'ReserveController@getIndex');
 });
 
-// Module that control doctor information
-Route::controller(
-	'doctor',
-	'DoctorController'
-);
-
-// Module that control doctor record
-Route::controller(
-	'record',
-	'RecordController'
-);
+// Doctor dashboard
+Route::group(array('before' => 'doctor'), function() {
+	Route::controller(
+		'doctor',
+		'DoctorController'
+	);
+	Route::get('record', 'RecordController@getIndex');
+	Route::get('addrecord', 'RecordController@getAdd');
+	Route::post('addrecord', 'RecordController@postAdd');
+	Route::get('apptlist', 'AppointmentController@getRequest');
+	Route::get('orderservice', 'ServiceController@getAddorder');
+});
 

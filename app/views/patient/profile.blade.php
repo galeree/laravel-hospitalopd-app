@@ -13,8 +13,21 @@
 			<p>Lastname: {{ $patient['lastName'] }}</p>
 			<p>Sex: {{ $patient['sex'] }}</p>
 			<p>Bloodtype: {{ $patient['bloodType'] }}</p>
+			<p>Birthdate: {{ $patient['birthDate'] }}</p>
 			<p>Tel: {{ $patient['tel'] }}</p>
 			<p>Address: {{ $patient['address'] }}</p>
+			<p>Medical Problem:</p>
+			<ul>
+				@foreach ($problems as $problem)
+				    <li>{{ $problem->problem }}</li>
+				@endforeach
+			</ul>
+			<p>Allergies:</p>
+			<ul>
+				@foreach ($allergies as $allergy)
+				    <p>{{ $allergy->allergy }}</p>
+				@endforeach
+			</ul>
 		</div>
 	</div>
 

@@ -1,3 +1,4 @@
+
 .custom .jumbotron {
   background-color: white;
   padding-bottom: 0.2%;
@@ -6,6 +7,41 @@
 
 .centercontainer {
 	text-align: center;
+}
+
+.tabSelect {
+	margin-top: 5%;
+}
+
+.tabSelect .btn-default.active {
+	background-color: #16a085;
+	border-color: #27ae60;
+	color: white;
+}
+
+.tabSelect .btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+	border-bottom-left-radius: 0px;
+}
+
+.tabSelect .btn-group>.btn:last-child:not(:first-child), .btn-group>.dropdown-toggle:not(:first-child) {
+	border-bottom-right-radius: 0px;
+}
+
+.tabSelect .btn-group>.btn {
+	padding-top: 0.7em;
+	padding-bottom: 0.7em;
+}
+
+.form-container {
+	background-color: white;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 0px;
+	margin-bottom: 5%;
+	padding-top: 4%;
+	border-radius: 5px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
 }
 
 .pointer {
@@ -17,19 +53,61 @@ label {
 }
 
 .login {
-	background-color: rgba(245, 245, 245, 0.95);
-	padding: 4%;
+	background-color: #2ecc71;
+	padding: 20px 0;
 	margin-bottom: 7%;
-	box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	border-radius: 5px;
+	margin-top: 10%;
 }
 
-.btn-group {
-	margin-bottom: 7%;
+.profile-img {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 2%;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
 }
 
-.submit {
-	padding-top: 3%;
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
 }
+
+.form-signin .form-control:focus {
+  border-color: #27ae60;
+}
+
+.form-signin .form-control {
+  box-shadow: none;
+  border-color: #8c9899;
+  color: #27ae60;
+}
+
+.btn.btn-primary.btn-block {
+  background-color: #2ecc71;
+  border-color: #27ae60;
+}
+
+.btn.btn-primary.btn-block:hover {
+  background-color: #27ae60;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+  outline: none !important;
+}
+
+.signup {
+	color: #95a5a6;
+}
+
+.signup:hover {
+  color: #bdc3c7;
+  text-decoration: none;
+}
+
 
 /* Navbar */
 .menu.navbar-default {

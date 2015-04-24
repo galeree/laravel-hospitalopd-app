@@ -49,7 +49,6 @@
 		}
 	});
 
-	console.log($('#register'));
 	$('#register').validate({
 		rules: {
 			username: {

@@ -18,10 +18,12 @@ class ServiceController extends BaseController {
 	public function getIndex() {
 		$data = Session::all();
 		$username = $data['username'][0];
+		$hn = $data['hn'][0];
+		$services = Service::where('HN','=',$hn)->get();
 		return View::make('patient/service.index', array('username' => $username));
 	}
 
-	public function getOrder() {
+	public function getAddorder() {
 		return View::make('doctor/service.order');
 	}
 

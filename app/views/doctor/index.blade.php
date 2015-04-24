@@ -36,12 +36,12 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6 text-center pointer" 
-					 onclick="linkto('/service/order')">
+					 onclick="linkto('orderservice')">
 					<p>Service</p>
 					<i class="fa fa-camera-retro fa-5x"></i>
 				</div>
 				<div class="col-md-6 text-center pointer" 
-					 onclick="linkto('/appointment/main')">
+					 onclick="linkto('/apptlist')">
 					<p>Appointment</p>
 					<i class="fa fa-camera-retro fa-5x"></i>
 				</div>	

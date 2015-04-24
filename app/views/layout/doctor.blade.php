@@ -38,8 +38,8 @@
 				<li class="active"><a href="/doctor">Home</a></li>
 				<li class=""><a href="/doctor/profile">Profile</a></li>
 				<li class=""><a href="/record">Record</a></li>
-				<li class=""><a href="/service/order">Service</a></li>
-				<li class=""><a href="/appointment/main">Appointment</a></li>
+				<li class=""><a href="/orderservice">Service</a></li>
+				<li class=""><a href="/apptlist">Appointment</a></li>
 			</ul>
 			<!-- Log out -->
 			<form class="navbar-form navbar-left"

@@ -18,10 +18,10 @@
 	<!-- Title for each page -->
 	@yield('title')
 </head>
-<body class="custom">
-	<div class="container jumbotron">
+<body class="custom" style="background-color: #2ecc71">
+	<!--<div class="container jumbotron">
 	    <img src="/img/logo.png" class="img-responsive center-block"></img>
-	</div>
+	</div>-->
 	@yield('content')
         
 	{{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js') }}

@@ -21,7 +21,7 @@ class AppointmentController extends BaseController {
 		return View::make('patient/appointment.index', array('username' => $username));
 	}
 
-	public function getMain() {
+	public function getRequest() {
 		return View::make('doctor/appointment.index');
 	}
 

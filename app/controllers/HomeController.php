@@ -22,11 +22,11 @@ class HomeController extends BaseController {
 
 	public function postLogin() {
 		$role = Input::get('role');
-		$username = Input::get('username');
-		$password = Input::get('password');
 		$url = '';
 		if($role == 'patient') {
 			$url = '/patient';
+			$username = Input::get('username');
+			$password = Input::get('password');
 			$existence = User::where('username','=',$username)
 						 ->where('password',$password)->first();
 			if(count($existence) == 0) return Redirect::to('/');
@@ -34,10 +34,20 @@ class HomeController extends BaseController {
 				Session::push('username', $existence["username"]);
 				Session::push('hn', $existence["HN"]);
 				Session::push('role',$role);
-				return Redirect::to('/patient');
+				return Redirect::to('patient');
 			}
-		} else $url = '/doctor';
-		return Redirect::to($url);
+		} else {
+			$url = '/doctor';
+			$doctorID = Input::get('doctorID');
+			$existence = Doctor::where('doctorID','=',$doctorID)->first();
+			if(count($existence) == 0) return Redirect::to('/');
+			else {
+				Session::push('doctorID',$existence["doctorID"]);
+				Session::push('role', $role);
+				return Redirect::to('doctor');
+			}
+		}
+		return Redirect::to('/');
 	}
 
 	// Logout
@@ -67,9 +77,10 @@ class HomeController extends BaseController {
 		$sex = Input::get('sex');
 		$tel = Input::get('tel');
 		$address = Input::get('address');
-		$timestamp = strtotime($day.'-'.$month.'-'.$year);
+		//$timestamp = strtotime($day.'-'.$month.'-'.$year);
+		$timestamp = new DateTime($day.'-'.$month.'-'.$year);
 
-		// Create store variable
+		// Create store variable for patient
 		$patient = new Patient();
 		$patient->HN = $HN;
 		$patient->firstName = $firstName;
@@ -84,13 +95,15 @@ class HomeController extends BaseController {
 		// Patient save success
 		$patient_success = $patient->save();
 
+		// Create store variable for user
 		$user = new User();
 		$user->HN = $HN;
 		$user->username = $username;
 		$user->password = $password;
+
+		// User save success
 		$user_success = $user->save();
-		if($patient_success) Redirect::to('/');
-		else return Redirect::to('register');
+		return Redirect::to('register');
 	}
 
 	/* Validate method */

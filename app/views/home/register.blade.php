@@ -69,8 +69,8 @@
 				  	<div class="form-group">
 				  		<label for="sex">Sex:</label>
 				  		<select class="form-control" name="sex">
-				  			<option>Male</option>
-				  			<option>Female</option>
+				  			<option>ชาย</option>
+				  			<option>หญิง</option>
 				  		</select>
 				  	</div>
 

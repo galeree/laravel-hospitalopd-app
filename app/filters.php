@@ -54,10 +54,25 @@ Route::filter('patient', function()
 	if(is_null($data)) {
 		return Redirect::to('/');
 	} else {
-		if($data['role'][0]=='doctor') return Redirect::to('/');
+		if($data['role'][0]=='doctor') return Redirect::to('doctor');
 		$username = $data['username'][0];
 		$patient = User::where('username','=',$username)->first();
 		if(count($patient) == 0) {
+			return Redirect::to('/');
+		}
+	}
+});
+
+Route::filter('doctor', function()
+{
+	$data = Session::all();
+	if(is_null($data)) {
+		return Redirect::to('/');
+	} else {
+		if($data['role'][0]=='patient') return Redirect::to('patient');
+		$doctorid = $data['doctorID'][0];
+		$doctor = Doctor::where('doctorID','=',$doctorid)->first();
+		if(count($doctor) == 0) {
 			return Redirect::to('/');
 		}
 	}
