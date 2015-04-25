@@ -22,7 +22,9 @@ class AppointmentController extends BaseController {
 	}
 
 	public function getRequest() {
-		return View::make('doctor/appointment.index');
+		$data = Session::all();
+		$doctorid = $data['doctorID'][0];
+		return View::make('doctor/appointment.index', array('doctorid' => $doctorid));
 	}
 
 }

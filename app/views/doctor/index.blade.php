@@ -21,29 +21,33 @@
 		}
 	</script>
 	<div class="container">
-		<div class="col-md-8 col-md-offset-2 text-center">
-			<div class="row text-center">
+		<div class="col-md-8 col-md-offset-2 text-center option">
+			<div class="row text-center itemCon">
 				<div class="col-md-6 text-center pointer" 
-					 onclick="linkto('/doctor/profile')">
-					<p>Profile</p>
-					<i class="fa fa-camera-retro fa-5x"></i>
+					 onclick="linkto('/doctor/profile')"
+					 id="item" style="float: left; background-color: #16a085;">
+					<i class="fa fa-user"></i>
+					<h3>Profile</h3>
 				</div>
 				<div class="col-md-6 text-center pointer" 
-					 onclick="linkto('/record')">
-					<p>Medical Record</p>
-					<i class="fa fa-camera-retro fa-5x"></i>
+					 onclick="linkto('/record')"
+					 id="item" style="float: right; background-color: #3498db">
+					<i class="fa fa-list-alt"></i>
+					<h3>Worktime</h3>
 				</div>	
 			</div>
-			<div class="row">
+			<div class="row text-center itemCon">
 				<div class="col-md-6 text-center pointer" 
-					 onclick="linkto('orderservice')">
-					<p>Service</p>
-					<i class="fa fa-camera-retro fa-5x"></i>
+					 onclick="linkto('orderservice')"
+					 id="item" style="float: left; background-color: #2ecc71">
+					<i class="fa fa-medkit"></i>
+					<h3>Service</h3>
 				</div>
 				<div class="col-md-6 text-center pointer" 
-					 onclick="linkto('/apptlist')">
-					<p>Appointment</p>
-					<i class="fa fa-camera-retro fa-5x"></i>
+					 onclick="linkto('/apptlist')"
+					 id="item" style="float: right; background-color: #1abc9c">
+					<i class="fa fa-stethoscope"></i>
+					<h3>Appointment</h3>
 				</div>	
 			</div>
 		</div>

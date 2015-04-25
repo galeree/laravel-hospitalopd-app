@@ -165,7 +165,7 @@
 
 /* Patient layout */
 
-.patient {
+.patient, .doctor {
 	padding-top: 6%;
 }
 
@@ -182,10 +182,10 @@
 	height: 15em;
 	padding-top: 4.5%;
 	-webkit-transition: opacity 0.3s ease-in-out;
-  -moz-transition: opacity 0.3s ease-in-out;
-  -ms-transition: opacity 0.3s ease-in-out;
-  -o-transition: opacity 0.3s ease-in-out;
-  transition: opacity 0.3s ease-in-out;
+	-moz-transition: opacity 0.3s ease-in-out;
+	-ms-transition: opacity 0.3s ease-in-out;
+	-o-transition: opacity 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
 }
 
 #item:hover {

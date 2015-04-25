@@ -7,8 +7,13 @@
 @section('content')
 	<div class="container">
 		<div class="col-md-10 col-md-offset-1">
-			<div class="page-header"><h3>ตารางเวลางาน</h3></div>
-			<a class="btn btn-primary" href="/addrecord">New Record</a>
+			<div class="page-header">
+				<h3>ตารางเวลางาน 
+					<a class="btn btn-primary" 
+					   href="/addrecord" 
+					   style="display: inline-block"><i class="fa fa-plus"></i>Add new</a>
+				</h3>
+			</div>
 			<div class="table-responsive">
 				<table class="table table-striped">
 					<thead>

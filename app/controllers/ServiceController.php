@@ -24,7 +24,9 @@ class ServiceController extends BaseController {
 	}
 
 	public function getAddorder() {
-		return View::make('doctor/service.order');
+		$data = Session::all();
+		$doctorid = $data['doctorID'][0];
+		return View::make('doctor/service.order', array('doctorid' => $doctorid));
 	}
 
 }

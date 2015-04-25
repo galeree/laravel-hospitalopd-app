@@ -31,18 +31,11 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		    </button>
-			<a class="navbar-brand" href="/doctor">HospitalQ</a>
+		    <a class="navbar-brand" href="/doctor">HospitalQ</a>
 		</div>
 		<div class="collapse navbar-collapse" id="menu">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="/doctor">Home</a></li>
-				<li class=""><a href="/doctor/profile">Profile</a></li>
-				<li class=""><a href="/record">Record</a></li>
-				<li class=""><a href="/orderservice">Service</a></li>
-				<li class=""><a href="/apptlist">Appointment</a></li>
-			</ul>
 
-      		<div class="nav navbar-nav navbar-right">
+			<div class="nav navbar-nav navbar-right">
 				<a class="floatright display" href="/patient">
 					<i class="fa fa-user fa-fw"></i>{{ $doctorid }}</a>
 				<form class="navbar-form floatright"
@@ -54,6 +47,7 @@
 	        		</button>
       			</form>
 			</div>
+			<!-- Log out -->
 		</div>
 	</div>
 </nav>

@@ -29,6 +29,7 @@ Route::get('test', function() {
 	}
 });
 
+
 // Module that control root page
 Route::controller(
 	'home',

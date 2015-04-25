@@ -32,18 +32,18 @@
 				  		<p class="help-block">hh:mm ex. 20:20</p>
 				  		<input class="form-control"
 					  			   name="startTime"
-					  			   type="number"></input>
+					  			   type="text"></input>
 				  	</div>
 				  	<div class="form-group">
 				  		<label for="endtime">End:</label>
 				  		<p class="help-block">hh:mm ex. 20:20</p>
 				  		<input class="form-control"
 					  			   name="endTime"
-					  			   type="number"></input>
+					  			   type="text"></input>
 				  	</div>
 				  	<div class="form-group">
 				  		<label for="status">Status:</label>
-				  		<select class="form-control">
+				  		<select class="form-control" name="status">
 				  			<option>available</option>
 				  			<option>unavailable</option>
 				  		</select>

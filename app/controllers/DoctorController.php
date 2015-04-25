@@ -17,13 +17,13 @@ class DoctorController extends BaseController {
 
 	public function getIndex() {
 		$data = Session::all();
-		$doctorid = $data['doctorID'];
+		$doctorid = $data['doctorID'][0];
 		return View::make('doctor.index', array('doctorid' => $doctorid));
 	}
 
 	public function getProfile() {
 		$data = Session::all();
-		$doctorid = $data['doctorID'];
+		$doctorid = $data['doctorID'][0];
 		$doctor = Doctor::where('doctorID','=', $doctorid)->first();
 		return View::make('doctor.profile', array('doctorid' => $doctorid,
 												  'doctor' => $doctor));

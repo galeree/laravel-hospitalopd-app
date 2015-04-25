@@ -71,11 +71,17 @@ class HomeController extends BaseController {
 		$firstName = Input::get('firstName');
 		$lastName = Input::get('lastName');
 		$bloodType = Input::get('bloodType');
-		$date = Input::get('date');
+
+		// Birthdate variable
+		$temp = explode("/",Input::get('date'));
+		$day = $temp[1];
+		$month = $temp[0];
+		$year = $temp[2];
+
 		$sex = Input::get('sex');
 		$tel = Input::get('tel');
 		$address = Input::get('address');
-		$timestamp = new DateTime($date);
+		$timestamp = new DateTime($day.'-'.$month.'-'.$year);
 
 		// Create store variable for patient
 		$patient = new Patient();
