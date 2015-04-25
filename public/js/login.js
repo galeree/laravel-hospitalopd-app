@@ -8,12 +8,14 @@ $(document).ready(function(){
 	doctor_form.hide();
 	patient_button.click(function(event) {
 		$(this).toggleClass('active');
+		$('.profile-img').attr('src','/img/icon_client.png');
 		doctor_button.toggleClass('active');
 		doctor_form.hide();
 		patient_form.show()
 	});
 	doctor_button.click(function(event) {
 		$(this).toggleClass('active');
+		$('.profile-img').attr('src','img/icon_doctor.png');
 		patient_button.toggleClass('active');
 		patient_form.hide();
 		doctor_form.show();

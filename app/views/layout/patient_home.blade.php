@@ -31,16 +31,9 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		    </button>
-			<a class="navbar-brand" href="/patient">HospitalQ</a>
+		    <a class="navbar-brand" href="/patient">HospitalQ</a>
 		</div>
 		<div class="collapse navbar-collapse" id="menu">
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="/patient">Home</a></li>
-				<li class=""><a href="/patient/profile">Profile</a></li>
-				<li class=""><a href="/appointment">Appointment</a></li>
-				<li class=""><a href="/service">Service</a></li>
-				<li class=""><a href="/reserve">Reserve</a></li>
-			</ul>
 
 			<div class="nav navbar-nav navbar-right">
 				<a class="floatright display" href="/patient">
@@ -54,6 +47,7 @@
 	        		</button>
       			</form>
 			</div>
+			<!-- Log out -->
 		</div>
 	</div>
 </nav>

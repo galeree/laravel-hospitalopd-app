@@ -25,7 +25,7 @@
 	    	</div>
 	    	<div class="form-container">
 	    		<img class="profile-img" 
-	    			 src="/img/accountlogo.png"></img>
+	    			 src="/img/icon_client.png"></img>
 		    	<form method="POST" 
 		    		  action="/home/login" 
 		    		  id="patient"
