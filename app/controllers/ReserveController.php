@@ -21,4 +21,5 @@ class ReserveController extends BaseController {
 		return View::make('patient/reserve.index', array('username'=> $username));
 	}
 
+
 }
