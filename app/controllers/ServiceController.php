@@ -19,6 +19,7 @@ class ServiceController extends BaseController {
 		$data = Session::all();
 		$username = $data['username'][0];
 		$hn = $data['hn'][0];
+
 		$services = DB::table('Service')->where('HN','=',$hn)
 						->where('status','=','false')
 						->join('ServiceType','Service.serviceID','=','ServiceType.serviceID')
@@ -26,6 +27,7 @@ class ServiceController extends BaseController {
 
 		return View::make('patient/service.index', array('username' => $username,
 														 'services' => $services));
+
 	}
 
 	public function getAddorder() {
@@ -33,5 +35,6 @@ class ServiceController extends BaseController {
 		$doctorid = $data['doctorID'][0];
 		return View::make('doctor/service.order', array('doctorid' => $doctorid));
 	}
+
 
 }

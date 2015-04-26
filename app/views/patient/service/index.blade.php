@@ -6,6 +6,7 @@
 
 @section('content')
 	<div class="container">
+
 		<div class="col-md-10 col-md-offset-1"></div>
 		<div class="page-header"><h3>Confirm Service</h3></div>
 		<div class="table-responsive">
@@ -28,6 +29,7 @@
 				</tbody>
 			</table>
 		</div>
+
 	</div>
 
 @endsection
