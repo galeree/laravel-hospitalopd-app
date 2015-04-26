@@ -106,7 +106,7 @@ class HomeController extends BaseController {
 
 		// User save success
 		$user_success = $user->save();
-		return Redirect::to('register');
+		return Redirect::to('/');
 	}
 
 	/* Validate method */

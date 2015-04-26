@@ -4,93 +4,69 @@
 	<title>Doctor appointment page</title>
 @endsection
 
+@section('script')
+	{{ HTML::script('js/appointment.js') }}
+@endsection
+
 @section('content')
 	<div class="container">
 		<div class="col-md-10 col-md-offset-1">
 			<div class="page-header"><h3>Appointment</h3></div>
-			<p>Doctor appointment page</p>
-			<p>one choice list of all appointment</p>
-			<p>other choice list of request appointment</p>
 			<div class="centercontainer">
-		    	<div class="btn-group" role="group">
+		    	<div class="btn-group choice" role="group">
 		    		<button type="button" 
 		    				class="btn btn-default active" 
-		    				id="select-appointment">Request</button>
+		    				id="select-request">Request</button>
 		    		<button type="button" 
 		    				class="btn btn-default"
-		    				id="select-service">All</button>
+		    				id="select-record">Recorded</button>
 		    	</div>
 	    	</div>
 			
 			<!-- Request appointment list -->
-			<div class="table-responsive" id="appt-list">
+			<div class="table-responsive" id="req-list">
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Doctor</th>
-							<th>Date</th>
-							<th>Time</th>
+							<th>Patient</th>
+							<th>Datetime</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-
+						@foreach($requests as $request)
+							<tr data-hn='{{ $request->HN }}'
+								data-datetime='{{ $request->appt_dateTime }}'
+								class="reqElem pointer">
+								<td>{{ $request->HN }}</td>
+								<td>{{ $request->appt_dateTime }}</td>
+								<td>{{ $request->status }}</td>
+							</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>
 
 			<!-- All appointment list -->
 			<div class="table-responsive" 
-				 id="serv-list"
+				 id="record-list"
 				 style="display: none">
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Type</th>
-							<th>Date</th>
+							<th>Patient</th>
+							<th>Datetime</th>
+							<th>Status</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>X-ray</td>
-							<td>31 May 2558</td>
-						</tr>
-						<tr>
-							<td>X-ray</td>
-							<td>31 May 2558</td>
-						</tr>
-						<tr>
-							<td>X-ray</td>
-							<td>31 May 2558</td>
-						</tr>
-						<tr>
-							<td>X-ray</td>
-							<td>31 May 2558</td>
-						</tr>
+						@foreach($appointments as $appointment)
+							<tr>
+								<td>{{ $appointment->HN }}</td>
+								<td>{{ $appointment->appt_dateTime }}</td>
+								<td>{{ $appointment->status }}</td>
+							</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

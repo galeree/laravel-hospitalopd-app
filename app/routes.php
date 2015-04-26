@@ -43,8 +43,11 @@ Route::group(array('before' => 'patient'), function() {
 		'PatientController'
 	);
 	Route::get('appointment', 'AppointmentController@getIndex');
+	Route::post('saveapp', 'AppointmentController@postSave');
 	Route::get('service', 'ServiceController@getIndex');
 	Route::get('reserve', 'ReserveController@getIndex');
+	Route::get('doclist', 'AppointmentController@getDoctorlist');
+	Route::get('schedulelist', 'AppointmentController@getScheduleList');
 });
 
 // Doctor dashboard
@@ -56,6 +59,8 @@ Route::group(array('before' => 'doctor'), function() {
 	Route::get('record', 'RecordController@getIndex');
 	Route::get('addrecord', 'RecordController@getAdd');
 	Route::post('addrecord', 'RecordController@postAdd');
+	Route::get('editappt', 'AppointmentController@getAddrecord');
+	Route::post('saveedit', 'AppointmentController@postAddrecord');
 	Route::get('apptlist', 'AppointmentController@getRequest');
 	Route::get('orderservice', 'ServiceController@getAddorder');
 });

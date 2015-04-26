@@ -1,18 +1,10 @@
-@extends('layout.doctor')
+@extends('layout.doctor_home')
 
 @section('title')
 	<title>Doctor</title>
 @endsection
 
 @section('content')
-	<!--<p>Doctor page</p>
-	<p>list of the things doctor can do</p>
-	<ul>
-		<li><a href="/doctor/profile">See their profile</a></li>
-		<li><a href="/record">Provide medical recorddetail</a></li>
-		<li><a href="/service/orderservice">Order Service page</a></li>
-		<li><a href="/appointment/main">Appointment list</a></li>
-	</ul>-->
 	<script type="text/javascript">
 		$(document).ready(function() {
 		});

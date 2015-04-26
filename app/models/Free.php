@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Medrecord extends Eloquent implements UserInterface, RemindableInterface {
+class Free extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
@@ -14,10 +14,10 @@ class Medrecord extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'medicalRecordDetails';
+	protected $table = 'free';
 	public $timestamps = false;
 	protected $fillable = [
-		'HN', 'dateTime','description','doctorID'
+		'doctorID', 'appt_dateTime'
 	];
 
 }

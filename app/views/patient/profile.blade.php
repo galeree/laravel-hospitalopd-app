@@ -5,9 +5,11 @@
 @endsection
 
 @section('content')
-	<div class="container profile">
+	<div class="container">
 		<div class="col-md-10 col-md-offset-1">
-			<h4>Profile</h4>
+			<div class="page-header">
+				<h4>Profile</h4>
+			</div>
 			<p>HN: {{ $patient['HN'] }}</p>
 			<p>Firstname: {{ $patient['firstName'] }}</p>
 			<p>Lastname: {{ $patient['lastName'] }}</p>
