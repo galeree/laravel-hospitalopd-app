@@ -19,8 +19,13 @@ class ServiceController extends BaseController {
 		$data = Session::all();
 		$username = $data['username'][0];
 		$hn = $data['hn'][0];
-		$services = Service::where('HN','=',$hn)->get();
-		return View::make('patient/service.index', array('username' => $username));
+		$services = DB::table('Service')->where('HN','=',$hn)
+						->where('status','=','false')
+						->join('ServiceType','Service.serviceID','=','ServiceType.serviceID')
+						->get(['Service.*','ServiceType.name']);
+
+		return View::make('patient/service.index', array('username' => $username,
+														 'services' => $services));
 	}
 
 	public function getAddorder() {
