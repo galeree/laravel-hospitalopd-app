@@ -33,6 +33,7 @@
 						<tr>
 							<th class="text-center">Doctor</th>
 							<th class="text-center">Datetime</th>
+							<td class="text-center">Status</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -40,6 +41,7 @@
 							<tr>
 								<td class="text-center">{{ $appointment->firstName }} {{ $appointment->lastName }}</td>
 								<td class="text-center">{{ $appointment->appt_dateTime }}</td>
+								<td class="text-center">{{ $appointment->status }}</td>
 							</tr>
 						@endforeach
 					</tbody>

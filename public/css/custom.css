@@ -6,6 +6,10 @@
   color: #95a5a6;
 }
 
+.extra {
+	margin-top: 3%;
+}
+
 .patient input:focus, textarea:focus, keygen:focus, select:focus {
   outline-offset: 0px;
 }

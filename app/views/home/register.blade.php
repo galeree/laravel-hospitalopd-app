@@ -8,6 +8,7 @@
 	{{ HTML::script('js/form.js') }}
 	{{ HTML::style('jquery-ui/jquery-ui.min.css') }}
 	{{ HTML::script('jquery-ui/jquery-ui.min.js') }}
+	{{ HTML::script('js/register.js') }}
 @endsection
 
 @section('content')
@@ -103,7 +104,6 @@
 
 				  	<div class="form-group">
 				  		<label for="birthDate" class="col-sm-2 control-label">Birthdate</label>
-				  		<!--<p class="help-block">dd/mm/yyyy ex. 20/05/1993</p>-->
 				  		<div class="col-sm-10">
 					  		<input type="text" 
 					  			   id="datepicker" 
@@ -120,6 +120,33 @@
 					  			   class="form-control"
 					  			   name="tel"
 					  			   placeholder="Tel"></input>
+				  		</div>
+				  	</div>
+
+
+				  	<div class="form-group" id="problems">
+				  		<label for="problem" class="col-sm-2 control-label">Problems</label>
+				  		<div class="col-sm-9">
+				  			<input type="text"
+				  				   class="form-control" 
+				  				   name="problems[]"></input>
+				  		</div>
+				  		<div class="col-sm-1">
+				  			<a class="btn btn-primary pull-right" 
+				  			   id="add">+</a>
+				  		</div>
+				  	</div>
+
+				  	<div class="form-group" id="allergies">
+				  		<label class="col-sm-2 control-label">Allergies</label>
+				  		<div class="col-sm-9">
+				  			<input type="text"
+				  				   class="form-control"
+				  				   name="allergies[]"></input>
+				  		</div>
+				  		<div class="col-sm-1">
+				  			<a class="btn btn-primary pull-right" 
+				  			   id="add">+</a>
 				  		</div>
 				  	</div>
 
