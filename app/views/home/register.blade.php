@@ -81,29 +81,25 @@
 				  		</div>
 				  	</div>
 
-				  	<div class="row">
-					  	<div class="form-group col-sm-6">
-					  		<label for="bloodType" class="col-sm-5 control-label">Bloodtype</label>
-					  		<div class="col-sm-7" style="padding-left: 0.5em">
-						  		<select class="form-control" name="bloodType">
-						  			<option>A</option>
-						  			<option>B</option>
-						  			<option>O</option>
-						  			<option>AB</option>
-						  		</select>
-					  		</div>
+					<div class="form-group">
+					  	<label for="bloodType" class="col-sm-2 control-label">Bloodtype</label>
+					  	<div class="col-sm-4">
+						  	<select class="form-control" name="bloodType">
+						  		<option>A</option>
+						  		<option>B</option>
+						  		<option>O</option>
+						  		<option>AB</option>
+						  	</select>
 					  	</div>
 
-					  	<div class="form-group col-sm-6">
-					  		<label for="sex" class="col-sm-4 control-label">Sex</label>
-					  		<div class="col-sm-8">
-						  		<select class="form-control" name="sex">
-						  			<option>ชาย</option>
-						  			<option>หญิง</option>
-						  		</select>
-					  		</div>
+					  	<label for="sex" class="col-sm-2 control-label">Sex</label>
+					  	<div class="col-sm-4">
+						  	<select class="form-control" name="sex">
+						  		<option>ชาย</option>
+						  		<option>หญิง</option>
+						  	</select>
 					  	</div>
-				  	</div>
+					</div>
 
 				  	<div class="form-group">
 				  		<label for="birthDate" class="col-sm-2 control-label">Birthdate</label>
@@ -139,7 +135,8 @@
 				  	</div>
 
 					<div class="centercontainer submit">
-			    		<button class="btn btn-primary btn-block" type="submit">Submit</button>
+			    		<button class="btn btn-primary" type="submit">Submit</button>
+			    		<a class="btn btn-default" href="/">Cancel</a>
 			    	</div>
 
 			</form>

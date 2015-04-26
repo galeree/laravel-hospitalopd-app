@@ -59,7 +59,7 @@
 		    		  class="form-signin">
 		    		<div class="form-group">
 		    			<input type="text" class="form-control"
-		    				   name="doctorID" placeholder="Enter your ID"></input>
+		    				   name="doctorID" placeholder="Please enter your ID"></input>
 		    		</div>
 		    		<div class="centercontainer submit">
 		    			<button class="btn btn-primary btn-block"

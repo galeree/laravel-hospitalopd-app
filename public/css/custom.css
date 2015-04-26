@@ -1,8 +1,11 @@
+.custom a:focus {
+  text-decoration: none;
+  outline: 0px;
+  color: #95a5a6;
+}
 
-.custom .jumbotron {
-  background-color: white;
-  padding-bottom: 0.2%;
-  padding-top: 0.2%;
+.patient input:focus, textarea:focus, keygen:focus, select:focus {
+  outline-offset: 0px;
 }
 
 .centercontainer {
@@ -98,12 +101,14 @@
   color: #27ae60;
 }
 
-.btn.btn-primary.btn-block {
+.btn.btn-primary.btn-block,
+.custom .btn.btn-primary {
   background-color: #2ecc71;
   border-color: #27ae60;
 }
 
-.btn.btn-primary.btn-block:hover {
+.btn.btn-primary.btn-block:hover,
+.custom .btn.btn-primary:hover {
   background-color: #27ae60;
 }
 
