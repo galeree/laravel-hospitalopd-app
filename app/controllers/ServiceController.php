@@ -25,8 +25,15 @@ class ServiceController extends BaseController {
 						->join('ServiceType','Service.serviceID','=','ServiceType.serviceID')
 						->get(['Service.*','ServiceType.name']);
 
-		return View::make('patient/service.index', array('username' => $username,
+		return View::make('patient/service.index', array('username' => $username, 
 														 'services' => $services));
+
+	}
+	public function postIndex(){
+		$query ="UPDATE Service SET status='true' where HN = '".$hn."'";
+	//	$service = DB::statement("UPDATE Service SET status='true' where HN = '".$hn."'");
+	//	return Redirect::to('/service');
+		return $query;
 
 	}
 
