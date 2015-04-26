@@ -6,22 +6,7 @@
 
 @section('content')
 	<div class="container">
-<<<<<<< HEAD
-		<h4>Service page</h4>
-		<p>Use ajax confirm box</p>
 
-		<ul>
-			<li><a href=""> </a>service1</li>
-			<li><a href=""></a>service2</li>
-			<li><a href=""></a>service3</li>
-			<li><a href=""></a>service4</li>
-			<li><a href=""></a>service5</li>
-			<li><a href=""></a>service6</li>
-		</ul>
-
-		<li> Service :: {{ $serviceName}}  date :: {{ $date}} status ::{{ $status }}</li>
-	</ul>
-=======
 		<div class="col-md-10 col-md-offset-1"></div>
 		<div class="page-header"><h3>Confirm Service</h3></div>
 		<div class="table-responsive">
@@ -44,7 +29,7 @@
 				</tbody>
 			</table>
 		</div>
->>>>>>> 537c64df24c39c26ac5d91c93910ad0663f17742
+
 	</div>
 
 @endsection
