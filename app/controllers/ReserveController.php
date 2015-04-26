@@ -18,7 +18,20 @@ class ReserveController extends BaseController {
 	public function getIndex() {
 		$data = Session::all();
 		$username = $data['username'][0];
-		return View::make('patient/reserve.index', array('username'=> $username));
+		$hn = $data['hn'][0];
+		$appointments = DB::table('Appointment')->where('HN','=',$hn)
+							->join('Doctor','Appointment.doctorID','=', 'Doctor.doctorID')
+							->orderBy('appt_dateTime','asc')
+							->get(['Appointment.*','Doctor.firstName', 'Doctor.lastName']);
+
+		$services = DB::table('Service')->where('HN','=',$hn)
+										->join('ServiceType','Service.serviceID','=','ServiceType.serviceID')
+										->orderBy('date','asc')
+										->get(['Service.*','ServiceType.name']);
+
+		return View::make('patient/reserve.index', array('username'=> $username,
+														 'appointments' => $appointments,
+														 'services' => $services));
 	}
 
 }
