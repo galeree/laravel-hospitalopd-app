@@ -26,7 +26,7 @@
 					<!-- field set -->
 					<fieldset data-step="1">
 						<h2 class="fs-title">Select Department</h2>
-						<h3 class="fs-subtitle">This is step 1</h3>
+						<h3 class="fs-subtitle">Step 1</h3>
 						<select name="department">
 							@foreach($departments as $department)
 								<option>{{ $department }}</option>
@@ -36,7 +36,7 @@
 					</fieldset>
 					<fieldset data-step="2">
 						<h2 class="fs-title">Select Doctor</h2>
-						<h3 class="fs-subtitle" id="hasAfter">This is step 2</h3>
+						<h3 class="fs-subtitle" id="hasAfter">Step 2</h3>
 						<script type="custom/template" id="doctortemplate">
 							<select name="doctor">
 								<option data-id="{id}">{docname}</option>
@@ -47,7 +47,7 @@
 					</fieldset>
 					<fieldset data-step="3">
 						<h2 class="fs-title">Select Time</h2>
-						<h3 class="fs-subtitle" id="hasAfter">This is step 3</h3>
+						<h3 class="fs-subtitle" id="hasAfter">Step 3</h3>
 						<script type="custom/template" id="scheduletemplate">
 							<select name="schedule">
 								<option data-date="{date}" data-start="{start}" data-end="{end}">{date_dis}&ensp;{start_dis}&ensp;{end_dis}</option>
