@@ -31,38 +31,17 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Doctor</th>
-							<th>Date</th>
-							<th>Time</th>
+							<th class="text-center">Doctor</th>
+							<th class="text-center">Datetime</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-						<tr>
-							<td>Patraporn Kuhavattana</td>
-							<td>31 May 2558</td>
-							<td>13.00</td>
-						</tr>
-
+						@foreach($appointments as $appointment)
+							<tr>
+								<td class="text-center">{{ $appointment->firstName }} {{ $appointment->lastName }}</td>
+								<td class="text-center">{{ $appointment->appt_dateTime }}</td>
+							</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>
@@ -74,27 +53,19 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Type</th>
-							<th>Date</th>
+							<th class="text-center">Type</th>
+							<th class="text-center">Date</th>
+							<th class="text-center">Status</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>X-ray</td>
-							<td>31 May 2558</td>
-						</tr>
-						<tr>
-							<td>X-ray</td>
-							<td>31 May 2558</td>
-						</tr>
-						<tr>
-							<td>X-ray</td>
-							<td>31 May 2558</td>
-						</tr>
-						<tr>
-							<td>X-ray</td>
-							<td>31 May 2558</td>
-						</tr>
+						@foreach($services as $service)
+							<tr>
+								<td class="text-center">{{ $service->name }}</td>
+								<td class="text-center">{{ $service->date }}</td>
+								<td class="text-center">{{ $service->status }}</td>
+							</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

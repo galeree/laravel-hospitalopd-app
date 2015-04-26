@@ -19,6 +19,7 @@ class ServiceController extends BaseController {
 		$data = Session::all();
 		$username = $data['username'][0];
 		$hn = $data['hn'][0];
+<<<<<<< HEAD
 		$services = Service::select('date','serviceID','status')
 				->where('HN','=',$hn)
 				-> where('status','=','false')->first();
@@ -31,6 +32,15 @@ class ServiceController extends BaseController {
 														'date'=>$date,
 														'status'=>$status,
 														'serviceName'=>$serviceName));
+=======
+		$services = DB::table('Service')->where('HN','=',$hn)
+						->where('status','=','false')
+						->join('ServiceType','Service.serviceID','=','ServiceType.serviceID')
+						->get(['Service.*','ServiceType.name']);
+
+		return View::make('patient/service.index', array('username' => $username,
+														 'services' => $services));
+>>>>>>> 537c64df24c39c26ac5d91c93910ad0663f17742
 	}
 
 	public function getAddorder() {
