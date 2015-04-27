@@ -30,10 +30,11 @@ class ServiceController extends BaseController {
 
 	}
 	public function postIndex(){
-		$query ="UPDATE Service SET status='true' where HN = '".$hn."'";
-	//	$service = DB::statement("UPDATE Service SET status='true' where HN = '".$hn."'");
-	//	return Redirect::to('/service');
-		return $query;
+		$data = Session::all();
+		$username = $data['username'][0];
+		$hn = $data['hn'][0];
+		$service = DB::statement("UPDATE Service SET status='true' where HN = '".$hn."'");
+		return Redirect::to('/service');
 
 	}
 

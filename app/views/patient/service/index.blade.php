@@ -10,7 +10,7 @@
 
 		<div class="col-md-10 col-md-offset-1"></div>
 		<div class="page-header"><h3>Confirm Service</h3></div>
-		<form method="GET"
+		<form method="POST"
 				  action="/service"
 				  novalidate="novalidate"
 				  id="confirm"
