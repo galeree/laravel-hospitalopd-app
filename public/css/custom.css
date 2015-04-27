@@ -108,13 +108,15 @@
 }
 
 .btn.btn-primary.btn-block,
-.custom .btn.btn-primary {
+.custom .btn.btn-primary,
+.doctor .btn.btn-primary {
   background-color: #2ecc71;
   border-color: #27ae60;
 }
 
 .btn.btn-primary.btn-block:hover,
-.custom .btn.btn-primary:hover {
+.custom .btn.btn-primary:hover,
+.doctor .btn.btn-primary:hover {
   background-color: #27ae60;
 }
 
@@ -192,11 +194,6 @@
 	width: 15em;
 	height: 15em;
 	padding-top: 4.5%;
-	-webkit-transition: opacity 0.3s ease-in-out;
-	-moz-transition: opacity 0.3s ease-in-out;
-	-ms-transition: opacity 0.3s ease-in-out;
-	-o-transition: opacity 0.3s ease-in-out;
-	transition: opacity 0.3s ease-in-out;
 }
 
 #item:hover {
@@ -252,4 +249,53 @@
 
 .menu .navbar-brand:hover {
 	color: #16a085;
+}
+
+.formCon {
+	border-radius: 3px;
+  	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  	box-sizing: border-box;
+  	margin-top: 9%;
+}
+
+.tableCon {
+	border-radius: 3px;
+  	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+  	box-sizing: border-box;
+  	min-height: 90%;	
+}
+
+.tableCon .btn-default.active {
+  background-color: #16a085;
+  border-color: #27ae60;
+  color: white;
+}
+
+.table-striped>tbody>tr.reqElem:nth-child(odd):hover>td, 
+.table-striped>tbody>tr.appElem:nth-child(odd):hover>td{
+	background-color: #16a085 !important;
+	color: white;
+}
+
+.table-striped>tbody>tr.reqElem:nth-child(even):hover>td, 
+.table-striped>tbody>tr.appElem:nth-child(even):hover>td{
+	background-color: #eee !important;
+}
+
+.table-striped>tbody>tr.reqElem:nth-child(odd)>td,
+.table-striped>tbody>tr.appElem:nth-child(odd)>td {
+	background-color: #1abc9c;
+	color: white;
+}
+
+.change {
+	color: #16a085
+}
+
+#register .help-block {
+	margin-bottom: 0px;
+}
+
+.form-group.decMar {
+	margin-bottom: 0.3em;
 }

@@ -10,8 +10,9 @@
 
 @section('content')
 	<div class="container">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="page-header"><h3>Appointment</h3></div>
+		<div class="col-md-10 col-md-offset-1 tableCon">
+			<div class="page-header"><h3 class="change">
+				<i class="fa fa-list-alt" style="vertical-align: bottom; margin-right: 0.5em"></i>Appointment</h3></div>
 			<div class="centercontainer">
 		    	<div class="btn-group choice" role="group">
 		    		<button type="button" 
@@ -28,9 +29,9 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Patient</th>
-							<th>Datetime</th>
-							<th>Status</th>
+							<th class="change">Patient</th>
+							<th class="change">Datetime</th>
+							<th class="change">Status</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -54,14 +55,14 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th>Patient</th>
-							<th>Datetime</th>
-							<th>Status</th>
+							<th class="change">Patient</th>
+							<th class="change">Datetime</th>
+							<th class="change">Status</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($appointments as $appointment)
-							<tr>
+							<tr class="appElem">
 								<td>{{ $appointment->HN }}</td>
 								<td>{{ $appointment->appt_dateTime }}</td>
 								<td>{{ $appointment->status }}</td>

@@ -10,9 +10,9 @@
 
 @section('content')
 	<div class="container">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-10 col-md-offset-1 tableCon">
 			<div class="page-header">
-				<h4>Reserve list</h4>
+				<h3 class="change"><i class="fa fa-list-alt" style="margin-right: 0.5em"></i>Reserve List</h3>
 			</div>
 
 	    	<div class="centercontainer">
@@ -31,17 +31,15 @@
 				<table class="table table-striped">
 					<thead>
 						<tr>
-							<th class="text-center">Doctor</th>
-							<th class="text-center">Datetime</th>
-							<td class="text-center">Status</td>
+							<th class="text-center change">Doctor</th>
+							<th class="text-center change">Datetime</th>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($appointments as $appointment)
-							<tr>
+							<tr class="appElem">
 								<td class="text-center">{{ $appointment->firstName }} {{ $appointment->lastName }}</td>
 								<td class="text-center">{{ $appointment->appt_dateTime }}</td>
-								<td class="text-center">{{ $appointment->status }}</td>
 							</tr>
 						@endforeach
 					</tbody>
@@ -54,10 +52,10 @@
 				 style="display: none">
 				<table class="table table-striped">
 					<thead>
-						<tr>
-							<th class="text-center">Type</th>
-							<th class="text-center">Date</th>
-							<th class="text-center">Status</th>
+						<tr class="appElem">
+							<th class="text-center change">Type</th>
+							<th class="text-center change">Date</th>
+							<th class="text-center change">Status</th>
 						</tr>
 					</thead>
 					<tbody>

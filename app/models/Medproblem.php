@@ -17,7 +17,7 @@ class Medproblem extends Eloquent implements UserInterface, RemindableInterface 
 	protected $table = 'medicalProblems';
 	public $timestamps = false;
 	protected $fillable = [
-		'HN', 'problem','note'
+		'HN', 'problem'
 	];
 
 }

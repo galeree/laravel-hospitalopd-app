@@ -63,11 +63,17 @@
 
 				  	<div class="form-group">
 				  		<label for="firstName" class="col-sm-2 control-label">Firstname</label>
-				  		<div class="col-sm-10">
+				  		<div class="col-sm-3">
+				  			<select class="form-control" name="prefix">
+				  				<option>นาย</option>
+				  				<option>นาง</option>
+				  				<option>นางสาว</option>
+				  			</select>
+				  		</div>
+				  		<div class="col-sm-7">
 					  		<input type="text"
 						  			   class="form-control"
-						  			   name="firstName"
-						  			   placeholder="Firstname"></input>
+						  			   name="firstName"></input>
 				  		</div>
 	
 				  	</div>
@@ -77,8 +83,7 @@
 				  		<div class="col-sm-10">
 					  		<input type="text"
 					  			   class="form-control"
-					  			   name="lastName"
-					  			   placeholder="Lastname"></input>
+					  			   name="lastName"></input>
 				  		</div>
 				  	</div>
 
@@ -112,15 +117,15 @@
 				  		</div>
 				  	</div>
 
-				  	<div class="form-group">
+				  	<div class="form-group decMar">
 				  		<label for="tel" class="col-sm-2 control-label">Tel</label>
-				  		<!--<p class="help-block">Ex. 0863477004</p>-->
 				  		<div class="col-sm-10">
 					  		<input type="tel"
 					  			   class="form-control"
 					  			   name="tel"
 					  			   placeholder="Tel"></input>
 				  		</div>
+				  		<p class="help-block col-sm-10 col-sm-offset-2">Ex. 0863477004</p>
 				  	</div>
 
 

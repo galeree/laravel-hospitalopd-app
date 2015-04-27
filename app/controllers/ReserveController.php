@@ -20,6 +20,7 @@ class ReserveController extends BaseController {
 		$username = $data['username'][0];
 		$hn = $data['hn'][0];
 		$appointments = DB::table('Appointment')->where('HN','=',$hn)
+							->where('status','=','pending')
 							->join('Doctor','Appointment.doctorID','=', 'Doctor.doctorID')
 							->orderBy('appt_dateTime','asc')
 							->get(['Appointment.*','Doctor.firstName', 'Doctor.lastName']);

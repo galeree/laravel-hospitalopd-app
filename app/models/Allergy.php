@@ -17,7 +17,7 @@ class Allergy extends Eloquent implements UserInterface, RemindableInterface {
 	protected $table = 'allergies';
 	public $timestamps = false;
 	protected $fillable = [
-		'HN', 'allergy','note'
+		'HN', 'allergy'
 	];
 
 

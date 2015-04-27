@@ -16,4 +16,16 @@ $(document).ready(function() {
 		problems_input.append('<div class="col-sm-9 col-sm-offset-2 extra">'+problems_html);
 		problems_input.append('<div class="col-sm-1 extra"><a class="btn btn-primary pull-right" id="remove">-</a>');
 	});
+
+	$('#allergies').delegate('#remove','click',function() {
+		var elem = $(this);
+		elem.parent().prev().remove();
+		elem.parent().remove();
+	});
+
+	$('#problems').delegate('#remove','click', function() {
+		var elem = $(this);
+		elem.parent().prev().remove();
+		elem.parent().remove();
+	}); 
 });
