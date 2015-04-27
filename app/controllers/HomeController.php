@@ -68,6 +68,7 @@ class HomeController extends BaseController {
 		$username = Input::get('username');
 		$password = Input::get('password');
 		$HN = Input::get('HN');
+		$prefix = Input::get('prefix');
 		$firstName = Input::get('firstName');
 		$lastName = Input::get('lastName');
 		$bloodType = Input::get('bloodType');
@@ -86,7 +87,7 @@ class HomeController extends BaseController {
 		// Create store variable for patient
 		$patient = new Patient();
 		$patient->HN = $HN;
-		$patient->firstName = $firstName;
+		$patient->firstName = $prefix.$firstName;
 		$patient->lastName = $lastName;
 		$patient->bloodType = $bloodType;
 		$patient->birthDate = $timestamp;
@@ -97,6 +98,30 @@ class HomeController extends BaseController {
 		
 		// Patient save success
 		$patient_success = $patient->save();
+
+
+		$allergies = Input::get('allergies');
+		$problems = Input::get('problems');
+		
+		// Insert allergy
+		foreach ($allergies as $allergy) {
+			if($allergy != '') {
+				$allergyrec = new Allergy();
+				$allergyrec->HN = $HN;
+				$allergyrec->allergy = $allergy;
+				$allergyrec->save();
+			}
+		}
+
+		// Insert problem
+		foreach ($problems as $problem) {
+			if($problem != '') {
+				$problemrec = new Medproblem();
+				$problemrec->HN = $HN;
+				$problemrec->problem = $problem;
+				$problemrec->save();
+			}
+		}
 
 		// Create store variable for user
 		$user = new User();

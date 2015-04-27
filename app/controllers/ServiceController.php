@@ -38,6 +38,7 @@ class ServiceController extends BaseController {
 
 	}
 
+
 	public function getAddorder() {
 		$data = Session::all();
 		$doctorid = $data['doctorID'][0];
