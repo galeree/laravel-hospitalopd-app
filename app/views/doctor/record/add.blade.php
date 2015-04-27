@@ -41,20 +41,19 @@
 				  	</div>
 				  	<div class="form-group">
 				  		<label for="starttime" class="col-sm-2 control-label">Start</label>
-				  		<!--<p class="help-block">hh:mm ex. 20:20</p>-->
 				  		<div class="col-sm-4">
 					  		<input class="form-control"
 						  			   name="startTime"
 						  			   type="text"></input>
 				  		</div>
 				  		<label for="endtime" class="col-sm-2 control-label">End</label>
-				  		<!--<p class="help-block">hh:mm ex. 20:20</p>-->
 				  		<div class="col-sm-4">
 					  		<input class="form-control"
 						  			   name="endTime"
 						  			   type="text"></input>
 				  		</div>
-
+				  		<p class="help-block col-sm-4 col-sm-offset-2">hh:mm ex. 20:20</p>
+				  		<p class="help-block col-sm-4 col-sm-offset-2">hh:mm ex. 20:20</p>
 				  	</div>
 
 				  	<div class="centercontainer" style="padding-top: 0.4em;">

@@ -9,7 +9,7 @@
 		<div class="col-md-10 col-md-offset-1 tableCon">
 			<div class="page-header">
 				<h3 style="vertical-align: bottom" class="change">Schedule 
-					<a class="btn btn-primary btn-sm" 
+					<a class="btn btn-primary btn-sm addSche" 
 					   href="/addrecord" 
 					   style="display: inline-block; margin-left: 0.5em">
 					   <i class="fa fa-plus"></i> Add new

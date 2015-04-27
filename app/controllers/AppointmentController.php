@@ -41,6 +41,9 @@ class AppointmentController extends BaseController {
 	// Appointment record at doctor dashboard
 	public function getAddrecord() {
 		$doctorid = Session::get('doctorID')[0];
+		if(!isset($_GET['hn'])||!isset($_GET['datetime'])) {
+			return Redirect::to('apptlist');
+		}
 		$hn = $_GET['hn'];
 		$datetime = $_GET['datetime'];
 		$existence = Appointment::where('doctorID','=',$doctorid)
@@ -83,7 +86,9 @@ class AppointmentController extends BaseController {
 
 	public function getScheduleList() {
 		$query = $_GET['doctor'];
-		$schedules = Worktime::where('doctorID','=',$query)->get();
+		$now = new DateTime();
+		$schedules = Worktime::where('doctorID','=',$query)
+								->where('day','>',$now)->get();
 		return json_encode($schedules, JSON_UNESCAPED_UNICODE);
 	}
 

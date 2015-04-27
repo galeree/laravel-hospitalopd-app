@@ -17,8 +17,10 @@ class RecordController extends BaseController {
 
 	public function getIndex() {
 		$data = Session::all();
+		$now = new DateTime();
 		$doctorid = $data['doctorID'][0];
-		$records = Worktime::where('doctorID','=',$doctorid)->orderBy('day', 'desc')->get();
+		$records = Worktime::where('doctorID','=',$doctorid)
+							->where('day','>',$now)->orderBy('day', 'desc')->get();
 		foreach ($records as $record) {
 			$date = explode(" ",$record['day'])[0];
 			$record['day'] = $date;

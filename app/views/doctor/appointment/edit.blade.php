@@ -10,7 +10,7 @@
 
 @section('content')
 	<div class="container">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-8 col-md-offset-2 tableCon" style="margin-top: 1.5%">
 			<div class="page-header"><h3>Add appointment information</h3></div>
 
 			<form class="form-horizontal"

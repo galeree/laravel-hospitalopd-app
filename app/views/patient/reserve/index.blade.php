@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="col-md-10 col-md-offset-1 tableCon">
 			<div class="page-header">
-				<h3 class="change"><i class="fa fa-list-alt" style="margin-right: 0.5em"></i>Reserve List</h3>
+				<h3 class="change">Reserve List</h3>
 			</div>
 
 	    	<div class="centercontainer">

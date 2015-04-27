@@ -34,7 +34,7 @@ class ServiceController extends BaseController {
 		$username = $data['username'][0];
 		$hn = $data['hn'][0];
 		$service = DB::statement("UPDATE Service SET status='true' where HN = '".$hn."'");
-		return Redirect::to('/service');
+		return Redirect::to('service');
 
 	}
 

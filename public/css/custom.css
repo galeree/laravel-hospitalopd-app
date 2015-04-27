@@ -299,3 +299,12 @@
 .form-group.decMar {
 	margin-bottom: 0.3em;
 }
+
+.doctor .btn.btn-primary.addSche {
+  background-color: #1abc9c;
+  border-color: #16a085;
+}
+
+.doctor .btn.btn-primary.addSche:hover {
+  opacity: 0.8;
+}

@@ -11,8 +11,9 @@
 @section('content')
 	<div class="container">
 		<div class="col-md-10 col-md-offset-1 tableCon">
-			<div class="page-header"><h3 class="change">
-				<i class="fa fa-list-alt" style="vertical-align: bottom; margin-right: 0.5em"></i>Appointment</h3></div>
+			<div class="page-header">
+				<h3 class="change">Appointment</h3>
+			</div>
 			<div class="centercontainer">
 		    	<div class="btn-group choice" role="group">
 		    		<button type="button" 
