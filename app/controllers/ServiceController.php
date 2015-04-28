@@ -22,9 +22,8 @@ class ServiceController extends BaseController {
 
 		$services = DB::table('Service2')->where('Service2.HN','=',$hn)
 						->where('status','=','false')
-						->join('ServiceType','Service2.serviceID','=','ServiceType.serviceID')
-						->join('Service','Service2.HN','=','Service.HN')
-						->get(['ServiceType.name','Service.date','Service2.status','Service.ServiceID']);
+						->join('ServiceType','Service2.serviceID','=','ServiceType.serviceID')					
+						->get(['ServiceType.name','Service2.*']);
 
 		return View::make('patient/service.index', array('username' => $username, 
 														 'services' => $services));
@@ -86,6 +85,7 @@ class ServiceController extends BaseController {
 
 		// Create store variable for service
 		//Injection
+		
 		$service = new Service();
 		$service->date = $serviceTimeDate;
 		$service->HN = $hn;
@@ -99,11 +99,28 @@ class ServiceController extends BaseController {
 		$service2->status = $status;
 
 		// service save success
-		$service_success = $service->save();
-		$service2_success = $service2->save();
-		//$query = DB::statement("UPDATE Service2 SET status='false'");//OLD
+		try{
+			$service_success = $service->save();
+			$service2_success = $service2->save();
+		} catch (PDOException $exception) {
+			//return Response::make('Save to Database error! ' . $exception->getCode());
+		}
+		
+		//$query = DB::raw("UPDATE Service2 SET status='false' WHERE HN=''");//OLD
+		$query = DB::raw("UPDATE Patient SET bloodType='ZZZ' WHERE HN=''");//OLD
 
+
+		//INSERT INTO comments (name, email, comment) VALUES (‘test1’,’test1’,(select password from mysql.user where user=’root’ LIMIT 0,1))-- -);
+		//INSERT INTO comments (name, email, comment) VALUES ('test','test1','test')		','anything','anything');
+		//test1’,’test1’,(select password from mysql.user where user=’root’ LIMIT 0,1))-- -
+/*
+		$code = Service::where('HN','=',$hn)
+						->where('datetime','=',$serviceTimeDate)
+						->where('serviceID','=',$serviceID)
+							 ->pluck('code');
+*/
 		//$service2_success = DB::statement("INSERT INTO Service (date, HN, datetime, serviceID) VALUES ($serviceTimeDate, $hn, $dateTime, $serviceID)");
+		//$service2_success = DB::statement("UPDATE Service SET HN=$hn, WHERE code='"$code"'");
 
 		return Redirect::to('/doctor');
 	}
