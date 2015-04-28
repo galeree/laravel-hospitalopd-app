@@ -37,7 +37,6 @@ class ServiceController extends BaseController {
 		$serviceID = Input::get('serviceid');
 		$service_success = DB::statement("UPDATE Service2 SET status='true' where HN = '".$hn."' AND "."serviceID = '".$serviceID."'");
 		return Redirect::to('service');
-
 	}
 
 
@@ -57,7 +56,7 @@ class ServiceController extends BaseController {
 		$data = Session::all();
 		$doctorid = $data['doctorID'][0];
 		$hn = Input::get('HN');
-		//$status = Input::get('status');
+		$status = Input::get('status');
 
 		// Check Duplicate HN & serviceID
 		$serviceTypeName = Input::get('serviceTypeName');
@@ -71,7 +70,7 @@ class ServiceController extends BaseController {
 		if($serviceID == $chkServiceType){
 			return Redirect::to('orderservice');
 		}
-		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!END
+
 		//dateTime from Medrecord
 		$dateTime = Medrecord::where('HN','=',$hn)
 							 ->where('doctorID','=',$doctorid)
@@ -86,25 +85,26 @@ class ServiceController extends BaseController {
 		$serviceTimeDate = new DateTime($day.'-'.$month.'-'.$year.' '.$serviceTime[0].':'.$serviceTime[1].':00');
 
 		// Create store variable for service
+		//Injection
 		$service = new Service();
-		//$service->code = $code;
 		$service->date = $serviceTimeDate;
 		$service->HN = $hn;
 		$service->datetime = $dateTime;
 		$service->serviceID = $serviceID;
+		
 
 		$service2 = new Service2();
 		$service2->HN = $hn;
 		$service2->serviceID = $serviceID;
-		//$service2->status = $status;
+		$service2->status = $status;
 
 		// service save success
 		$service_success = $service->save();
 		$service2_success = $service2->save();
+		//$query = DB::statement("UPDATE Service2 SET status='false'");//OLD
 
-		//INJECTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		//$query = DB::statement("UPDATE Service2 SET status='false' WHERE HN=$hn AND UPDA");
-		$query = DB::statement("UPDATE Service2 SET status='false'");//OLD
+		//$service2_success = DB::statement("INSERT INTO Service (date, HN, datetime, serviceID) VALUES ($serviceTimeDate, $hn, $dateTime, $serviceID)");
+
 		return Redirect::to('/doctor');
 	}
 

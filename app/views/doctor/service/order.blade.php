@@ -51,16 +51,15 @@
 						</div>
 				  	</div>
 
+
 				  	<div class="form-group">
 				  		<label for="HN" class="col-sm-2 control-label">HN</label>
 				  		<div class="col-sm-10">
-					  		<select class="form-control" 
-					  				name="HN">
-								@foreach($patients as $patient)
-									<option>{{ $patient->HN }}</option>
-								@endforeach
-							</select>
-				  		</div>
+					  		<input class="form-control"
+						  			   name="HN"
+						  			   type="text"></input>
+						  	<p class="help-block">ex. HN0000001</p>
+						</div>
 				  	</div>
 
 				  	<div class="form-group">
