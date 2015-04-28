@@ -36,6 +36,25 @@ class ReserveController extends BaseController {
 														 'appointments' => $appointments,
 														 'services' => $services));
 	}
+	public function cancel() {
+		$data = Session::all();
+		$username = $data['username'][0];
+		$hn = $data['hn'][0];
+		
+		$doctorid = Input::get('doctorID');
+		$dateTime = Input::get('dateTime');
+
+		//$appointments = DB::delete("DELETE FROM Appointment WHERE doctorID = '".$doctorID."'' AND appt_dateTime = '".$dateTime."'");
+
+		//$free = DB::delete("DELETE FROM Free WHERE doctorID = '".$doctorID."'' AND appt_dateTime = '".$dateTime."'");
+		
+		$service1 = DB::statement("DELETE FROM Free WHERE doctorID='".$doctorid."' AND appt_dateTime='".$dateTime."'");
+		$service2 = DB::statement("DELETE FROM Appointment WHERE HN = '".$hn."' AND appt_dateTime='".$dateTime."' AND doctorID='".$doctorid."'");
+
+		return Redirect::to('reserve');
+						
+
+	}
 
 
 }

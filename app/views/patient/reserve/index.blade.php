@@ -6,6 +6,7 @@
 
 @section('script')
 	{{ HTML::script('js/reserve.js') }}
+	{{ HTML::script('js/cancel.js')}}
 @endsection
 
 @section('content')
@@ -28,6 +29,13 @@
 			
 	    	<!-- Appointment list -->
 			<div class="table-responsive" id="appt-list">
+
+				<form method="POST"
+					  action="/cancel"
+					  novalidate="novalidate"
+					  id="confirm"
+					  class="form-signup form-horizontal">
+
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -40,10 +48,12 @@
 							<tr class="appElem">
 								<td class="text-center">{{ $appointment->firstName }} {{ $appointment->lastName }}</td>
 								<td class="text-center">{{ $appointment->appt_dateTime }}</td>
+								<td class="text-center"><button class="btn btn-primary cancel" type="submit" data-datetime="{{$appointment->appt_dateTime}}" data-docid="{{ $appointment->doctorID }}">Cancel</button></td>
 							</tr>
 						@endforeach
 					</tbody>
 				</table>
+			</form>
 			</div>
 
 			<!-- Service list -->

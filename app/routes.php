@@ -47,6 +47,7 @@ Route::group(array('before' => 'patient'), function() {
 	Route::get('service', 'ServiceController@getIndex');
 	Route::post('service', 'ServiceController@postIndex');
 	Route::get('reserve', 'ReserveController@getIndex');
+	Route::post('cancel', 'ReserveController@cancel');
 	Route::get('doclist', 'AppointmentController@getDoctorlist');
 	Route::get('schedulelist', 'AppointmentController@getScheduleList');
 });
