@@ -27,6 +27,7 @@ class ReserveController extends BaseController {
 
 
 		$services = DB::table('Service2')->where('Service2.HN','=',$hn)
+						->where('status','=','true')
 						->join('ServiceType','Service2.serviceID','=','ServiceType.serviceID')
 						->join('Service','Service2.HN','=','Service.HN')
 						->get(['ServiceType.name','Service.date','Service2.status','Service.ServiceID']);

@@ -8,11 +8,11 @@ $(document).ready(function() {
 		var dept = $("select[name='department']").val();
 		$.getJSON("/doclist?dept=" + dept, function(data){
 	        var template = $.trim( $('#doctortemplate').html() );
-	        var frag = '';
+	        var frag = '<select name="doctor">';
 	        $.each(data,function(index,obj) {
 	        	var temp = template.replace( /{docname}/ig, obj.firstName + ' ' + obj.lastName)
 	        					   .replace( /{id}/ig, obj.doctorID);
-				var start = temp.search('<option>');
+				var start = temp.search('<option');
 				var end = temp.search('</select>');
 				temp = $.trim( temp.substring(start,end));
 	        	frag += temp;
