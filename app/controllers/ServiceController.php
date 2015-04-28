@@ -20,15 +20,22 @@ class ServiceController extends BaseController {
 		$username = $data['username'][0];
 		$hn = $data['hn'][0];
 
-		$services = DB::table('Service')->where('HN','=',$hn)
+		$services = DB::table('Service2')->where('HN','=',$hn)
 						->where('status','=','false')
-						->join('ServiceType','Service.serviceID','=','ServiceType.serviceID')
-						->get(['Service.*','ServiceType.name']);
+						->join('ServiceType','Service2.serviceID','=','ServiceType.serviceID')
+						->join('Service','Service2.HN','=','Service.HN')
+						/*
+						->join('Service', function($join){
+								$join->on('Service2.serviceID','=','Service.serviceID')
+								->orOn('Service2.HN','=','Service.HN');
+						})
+						*/
+						->get(['ServiceType.name','Service.date','Service2.status']);
 
 		return View::make('patient/service.index', array('username' => $username, 
 														 'services' => $services));
-
 	}
+
 	public function postIndex(){
 		$data = Session::all();
 		$username = $data['username'][0];
@@ -54,14 +61,23 @@ class ServiceController extends BaseController {
 		// Get input data
 		$data = Session::all();
 		$doctorid = $data['doctorID'][0];
-		$code = Input::get('code');
 		$hn = Input::get('HN');
-		$serviceTypeName = Input::get('serviceTypeName');
-		$status = Input::get('status');
+		//$status = Input::get('status');
 
+		// Check Duplicate HN & serviceID
+		$serviceTypeName = Input::get('serviceTypeName');
 		$serviceID = ServiceType::where('name','=', $serviceTypeName)							
 								->pluck('serviceID');
 
+		$chkServiceType = Service::where('HN','=',$hn)
+									->where('serviceID','=', $serviceID)
+									->pluck('serviceID');
+
+		if($serviceID == $chkServiceType){
+			return Redirect::to('orderservice');
+		}
+		//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!END
+		//dateTime from Medrecord
 		$dateTime = Medrecord::where('HN','=',$hn)
 							 ->where('doctorID','=',$doctorid)
 							 ->pluck('dateTime');
@@ -76,28 +92,24 @@ class ServiceController extends BaseController {
 
 		// Create store variable for service
 		$service = new Service();
-		$service->code = $code;
+		//$service->code = $code;
 		$service->date = $serviceTimeDate;
 		$service->HN = $hn;
-
 		$service->datetime = $dateTime;
 		$service->serviceID = $serviceID;
-		$service->status = $status;
-		
+
+		$service2 = new Service2();
+		$service2->HN = $hn;
+		$service2->serviceID = $serviceID;
+		//$service2->status = $status;
+
 		// service save success
 		$service_success = $service->save();
-/*
-		///////INJECTION
-		$query = DB::statement("UPDATE Service SET status='false'");
+		$service2_success = $service2->save();
 
-		//////////////////Example////////////////////////DB::STATEMENT
-		$condition = "WHERE doctorID = '".$doctorid."' AND appt_dateTime = '".$datetime."' AND HN = '".$hn."'";
-		$query = DB::statement("UPDATE Appointment SET status='recorded' ".$condition);
-		///////////////////////////////////////////DB::RAW
-		$someVariable = Input::get("some_variable");
-		$results = DB::select( DB::raw("SELECT * FROM some_table WHERE some_col = '$someVariable'") );
-		////////////////////////////////////////////
-*/
+		//INJECTION!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//$query = DB::statement("UPDATE Service2 SET status='false' WHERE HN=$hn AND UPDA");
+		$query = DB::statement("UPDATE Service2 SET status='false'");//OLD
 		return Redirect::to('/doctor');
 	}
 

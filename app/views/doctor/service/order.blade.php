@@ -24,21 +24,11 @@
 				  novalidate="novalidate"
 				  id="orderservice"
 				  class="form-signup form-horizontal">
-					
+			
 					<div class="page-header">
 						<h4>
 							<i class="fa fa-user" style="margin-right: 0.5em"></i>Order Service
 						</h4>
-					</div>
-					<div class="form-group">
-				  		<label for="code" class="col-sm-2 control-label">Code</label>
-				  		<div class="col-sm-10">
-					  		<input type="text"
-						  			   class="form-control"
-						  			   name="code"
-						  			   placeholder="Code"></input>
-				  		</div>
-				  	</div>
 
 				  	<div class="form-group">
 				  		<label for="serviceDate" class="col-sm-2 control-label">Service Date</label>
