@@ -25,11 +25,12 @@ class ReserveController extends BaseController {
 							->orderBy('appt_dateTime','asc')
 							->get(['Appointment.*','Doctor.firstName', 'Doctor.lastName']);
 
-		$services = DB::table('Service')->where('HN','=',$hn)
-										->join('ServiceType','Service.serviceID','=','ServiceType.serviceID')
-										->orderBy('date','asc')
-										->get(['Service.*','ServiceType.name']);
 
+		$services = DB::table('Service2')->where('Service2.HN','=',$hn)
+						->join('ServiceType','Service2.serviceID','=','ServiceType.serviceID')
+						->join('Service','Service2.HN','=','Service.HN')
+						->get(['ServiceType.name','Service.date','Service2.status','Service.ServiceID']);
+		
 		return View::make('patient/reserve.index', array('username'=> $username,
 														 'appointments' => $appointments,
 														 'services' => $services));

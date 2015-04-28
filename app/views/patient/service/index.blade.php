@@ -5,12 +5,29 @@
 @endsection
 
 @section('content')
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$(".confirm").click(function(event){
+			event.preventDefault();
+			var url = '/service';
+			var serviceid = $(this).data('id');
+			var form = $('<form>', {
+				'action': url,
+				'method': 'POST'
+			}).append($('<input>', {
+				'name': 'serviceid',
+				'value': serviceid
+			}))
+			form.submit();
+		});
+	});
+	</script>
 	<div class="container">
 
 		<div class="col-md-10 col-md-offset-1 tableCon">
 			<div class="page-header change"><h3>Confirm Service</h3></div>
 			<form method="POST"
-					  action="/service"
+					  action=""
 					  novalidate="novalidate"
 					  id="confirm"
 					  class="form-signup form-horizontal">
@@ -29,7 +46,11 @@
 								<td class="text-center">{{ $service->name }}</td>
 								<td class="text-center">{{ $service->date}}</td>
 								<td class="text-center">{{ $service->status }}</td>
-								<td class="text-center"><button class="btn btn-primary" type="submit">Confirm</button></td>
+								<td class="text-center">
+									<button class="btn btn-primary confirm" 
+											type="submit"
+											data-id="{{ $service->ServiceID }}">Confirm</button>
+								</td>
 							</tr>
 							@endforeach
 						</tbody>

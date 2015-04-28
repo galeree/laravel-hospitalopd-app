@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'zp8461_hosdb',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'lovety',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

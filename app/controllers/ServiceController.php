@@ -20,17 +20,11 @@ class ServiceController extends BaseController {
 		$username = $data['username'][0];
 		$hn = $data['hn'][0];
 
-		$services = DB::table('Service2')->where('HN','=',$hn)
+		$services = DB::table('Service2')->where('Service2.HN','=',$hn)
 						->where('status','=','false')
 						->join('ServiceType','Service2.serviceID','=','ServiceType.serviceID')
 						->join('Service','Service2.HN','=','Service.HN')
-						/*
-						->join('Service', function($join){
-								$join->on('Service2.serviceID','=','Service.serviceID')
-								->orOn('Service2.HN','=','Service.HN');
-						})
-						*/
-						->get(['ServiceType.name','Service.date','Service2.status']);
+						->get(['ServiceType.name','Service.date','Service2.status','Service.ServiceID']);
 
 		return View::make('patient/service.index', array('username' => $username, 
 														 'services' => $services));
@@ -40,7 +34,8 @@ class ServiceController extends BaseController {
 		$data = Session::all();
 		$username = $data['username'][0];
 		$hn = $data['hn'][0];
-		$service = DB::statement("UPDATE Service SET status='true' where HN = '".$hn."'");
+		$serviceID = Input::get('serviceid');
+		$service_success = DB::statement("UPDATE Service2 SET status='true' where HN = '".$hn."' AND "."serviceID = '".$serviceID."'");
 		return Redirect::to('service');
 
 	}

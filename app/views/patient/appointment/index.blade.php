@@ -50,7 +50,7 @@
 						<h3 class="fs-subtitle" id="hasAfter">Step 3</h3>
 						<script type="custom/template" id="scheduletemplate">
 							<select name="schedule">
-								<option data-date="{date}" data-start="{start}" data-end="{end}">{date_dis}&ensp;{start_dis}&ensp;{end_dis}</option>
+								<option data-date="{date}" data-start="{start}" data-end="{end}">{date_dis}&ensp;{start_dis} - {end_dis}</option>
 							</select>
 						</script>
 						<input type="button" name="previous" class="previous action-button" value="Previous" />
