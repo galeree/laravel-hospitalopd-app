@@ -29,7 +29,10 @@ class ReserveController extends BaseController {
 		$services = DB::table('Service2')->where('Service2.HN','=',$hn)
 						->where('status','=','true')
 						->join('ServiceType','Service2.serviceID','=','ServiceType.serviceID')
-						->join('Service','Service2.HN','=','Service.HN')
+						->join('Service', function($join) {
+							$join->on('Service2.HN','=','Service.HN')
+							->on('Service2.serviceID','=','Service.serviceID');
+						})
 						->get(['ServiceType.name','Service.date','Service2.status','Service.ServiceID']);
 		
 		return View::make('patient/reserve.index', array('username'=> $username,

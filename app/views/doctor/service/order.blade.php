@@ -51,7 +51,6 @@
 						</div>
 				  	</div>
 
-
 				  	<div class="form-group">
 				  		<label for="HN" class="col-sm-2 control-label">HN</label>
 				  		<div class="col-sm-10">
@@ -73,7 +72,6 @@
 							</select>
 				  		</div>
 				  	</div>
-
 
 					<div class="form-group">
 					  	<label for="status" class="col-sm-2 control-label">Status</label>

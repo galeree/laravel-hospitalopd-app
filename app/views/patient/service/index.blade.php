@@ -36,6 +36,7 @@
 						<thead>
 							<tr>
 								<th class="text-center change">Name</th>
+								<th class="text-center change">Date</th>
 								<th class="text-center change">Status</th>
 							</tr>
 						</thead>
@@ -43,6 +44,7 @@
 							@foreach($services as $service)
 							<tr class="appElem">
 								<td class="text-center">{{ $service->name }}</td>
+								<td class="text-center">{{ $service->date }}</td>
 								<td class="text-center">{{ $service->status }}</td>
 								<td class="text-center">
 									<button class="btn btn-primary confirm" 

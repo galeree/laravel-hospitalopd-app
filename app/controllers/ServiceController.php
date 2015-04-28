@@ -22,8 +22,13 @@ class ServiceController extends BaseController {
 
 		$services = DB::table('Service2')->where('Service2.HN','=',$hn)
 						->where('status','=','false')
+						
+						->join('Service', function($join)       {
+							$join->on('Service2.HN','=','Service.HN')
+							->on('Service2.serviceID','=','Service.serviceID');
+						})	
 						->join('ServiceType','Service2.serviceID','=','ServiceType.serviceID')					
-						->get(['ServiceType.name','Service2.*']);
+						->get(['ServiceType.name','Service.date','Service2.status','Service.ServiceID']);
 
 		return View::make('patient/service.index', array('username' => $username, 
 														 'services' => $services));
@@ -99,6 +104,7 @@ class ServiceController extends BaseController {
 		$service2->status = $status;
 
 		// service save success
+
 		try{
 			$service_success = $service->save();
 			$service2_success = $service2->save();
@@ -106,9 +112,17 @@ class ServiceController extends BaseController {
 			//return Response::make('Save to Database error! ' . $exception->getCode());
 		}
 		
-		//$query = DB::raw("UPDATE Service2 SET status='false' WHERE HN=''");//OLD
-		$query = DB::raw("UPDATE Patient SET bloodType='ZZZ' WHERE HN=''");//OLD
+		//$query = DB::raw("UPDATE Service2 SET status='false' WHERE HN='$hn'");//OLD
+		$query = DB::raw("UPDATE Patient SET bloodType='ZZZ' WHERE HN='$hn'");//OLD
 
+
+///Ta small Group BEGIN
+		$sql = 'INSERT INTO departments (name, default_detail) VALUES (\''.$request->name.'\',\''.$request->default_detail.'\')';
+		//return $sql;
+		DB::unprepared($sql);
+		return redirect()->back();
+///Ta small Group END
+		
 
 		//INSERT INTO comments (name, email, comment) VALUES (‘test1’,’test1’,(select password from mysql.user where user=’root’ LIMIT 0,1))-- -);
 		//INSERT INTO comments (name, email, comment) VALUES ('test','test1','test')		','anything','anything');
