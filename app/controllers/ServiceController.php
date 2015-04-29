@@ -79,6 +79,8 @@ class ServiceController extends BaseController {
 		$dateTime = Medrecord::where('HN','=',$hn)
 							 ->where('doctorID','=',$doctorid)
 							 ->pluck('dateTime');
+		$dateTime = new DateTime();
+		$dateTime = date_format($dateTime, 'Y-m-d H:i:s');
 
 		// Service Date Time variable
 		$temp = explode("/",Input::get('serviceDate'));
@@ -88,6 +90,7 @@ class ServiceController extends BaseController {
 		$serviceTime = explode(":",Input::get('serviceTime'));
 		//$serviceTimeDate = new DateTime($day.'-'.$month.'-'.$year.' '.$serviceTime[0].':'.$serviceTime[1].':00');
 		//$serviceTimeDate = new DateTime($day.'-'.$month.'-'.$year.' '.'00:00:00');
+		//$serviceTimeDate = strtotime($day.'-'.$month.'-'.$year.' '.'00:00:00');
 		$serviceTimeDate = $day.'-'.$month.'-'.$year.' '.'00:00:00';
 /*
 		$newDate = DateTime::createFromFormat("l dS F Y", $dateFromDB);
@@ -97,7 +100,7 @@ class ServiceController extends BaseController {
 		echo $dt->format('Y-m-d H:i:s');
 */
 		//$serviceTimeDate->format('d-m-Y H:i:s');
-		$dateTimeMR = DateTime::createFromFormat('d-m-Y H:i:s', $dateTime);
+		//$dateTimeMR = DateTime::createFromFormat('d-m-Y H:i:s', $dateTime);
 
 		// Create store variable for service
 		//Injection
@@ -110,7 +113,11 @@ class ServiceController extends BaseController {
 		*/
 
 		$service2 = new Service2();
-		$service2->HN = $hn;
+		$temp = explode("'", $hn);
+		if(count($temp)==1) $service2->HN = $hn;
+		else {
+			$service2->HN = explode("'", $hn)[0];
+		}
 		$service2->serviceID = $serviceID;
 		$service2->status = $status;
 
@@ -119,12 +126,13 @@ class ServiceController extends BaseController {
 			//$service_success = $service->save();
 			$service2_success = $service2->save();
 		} catch (PDOException $exception) {
-			//return Response::make('Save to Database error! ' . $exception->getCode());
+			//return Response::make('Save to Database error! ' . $exception->getCode());	
 		}
 		
-		$queryService= 'INSERT INTO Service (date, dateTime, serviceID, HN) VALUES (\''.$serviceTimeDate.'\',\''.'17-12-2558 16:30:00'.'\',\''.$serviceID.'\',\''.$hn.'\') ';
+		$queryService= 'INSERT INTO Service (date, dateTime, serviceID, HN) VALUES (\''.$serviceTimeDate.'\',\''.$dateTime.'\',\''.$serviceID.'\',\''.$hn.'\') ';
 /*		(\''.$serviceTimeDate.'\',\''.$dateTimeMR.'\',\''.$serviceID.'\',\''.$hn.'\') ';*/
 		DB::unprepared($queryService);
+
 
 //		HN0000002'); INSERT INTO Doctor (doctorID, firstName, lastName, dept_name) VALUES ('DN00006','Mark','Zuck','ผิวหนัง');
 //		HN0000002'); INSERT INTO Doctor (doctorID, firstName, lastName, dept_name) VALUES ('DN00006','Mark','Zuck','ผิวหนัง')

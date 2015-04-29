@@ -72,7 +72,7 @@
 						@foreach($services as $service)
 							<tr>
 								<td class="text-center">{{ $service->name }}</td>
-								<td class="text-center">{{ $service->date }}</td>
+								<td class="text-center"><?php echo explode(" ",$service->date)[0] ?></td>
 								<td class="text-center">{{ $service->status }}</td>
 							</tr>
 						@endforeach
