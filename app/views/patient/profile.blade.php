@@ -6,9 +6,9 @@
 
 @section('content')
 	<div class="container">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-10 col-md-offset-1 tableCon">
 			<div class="page-header">
-				<h4>Profile</h4>
+				<h3 class="change">Profile</h3>
 			</div>
 			<p>HN: {{ $patient['HN'] }}</p>
 			<p>Firstname: {{ $patient['firstName'] }}</p>

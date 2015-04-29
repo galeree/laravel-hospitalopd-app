@@ -16,9 +16,9 @@
 		});
 	</script>
 
+
 	<div class="container">
-		<h4>Order service page</h4>
-		<div class="col-md-6 col-md-offset-3 register">
+		<div class="col-md-6 col-md-offset-3 tableCon">
 			<form method="POST"
 				  action="/orderservice"
 				  novalidate="novalidate"
@@ -29,6 +29,7 @@
 						<h4>
 							<i class="fa fa-user" style="margin-right: 0.5em"></i>Order Service
 						</h4>
+					</div>
 
 				  	<div class="form-group">
 				  		<label for="serviceDate" class="col-sm-2 control-label">Service Date</label>
@@ -41,7 +42,7 @@
 				  		</div>
 				  	</div>
 
-				  	<div class="form-group">
+				  	<!--<div class="form-group">
 				  		<label for="serviceTime" class="col-sm-2 control-label">Service Time</label>
 				  		<div class="col-sm-10">
 					  		<input class="form-control"
@@ -49,7 +50,7 @@
 						  			   type="text"></input>
 						  	<p class="help-block">hh:mm ex. 20:20</p>
 						</div>
-				  	</div>
+				  	</div>-->
 
 
 				  	<div class="form-group">
@@ -58,6 +59,8 @@
 					  		<input class="form-control"
 						  			   name="HN"
 						  			   type="text"></input>
+						</div>
+						<div class="col-sm-offset-2 col-sm-8">
 						  	<p class="help-block">ex. HN0000001</p>
 						</div>
 				  	</div>

@@ -66,5 +66,6 @@ Route::group(array('before' => 'doctor'), function() {
 	Route::get('apptlist', 'AppointmentController@getRequest');
 	Route::get('orderservice', 'ServiceController@getAddorder');
 	Route::post('orderservice', 'ServiceController@postAddorder');
+	Route::get('check', 'ServiceController@getCheck');
 });
 

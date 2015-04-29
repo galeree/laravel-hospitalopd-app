@@ -44,7 +44,7 @@
 							@foreach($services as $service)
 							<tr class="appElem">
 								<td class="text-center">{{ $service->name }}</td>
-								<td class="text-center">{{ $service->date}}</td>
+								<td class="text-center"><?php echo explode(" ", $service->date)[0] ?></td>
 								<td class="text-center">{{ $service->status }}</td>
 								<td class="text-center">
 									<button class="btn btn-primary confirm" 
