@@ -44,7 +44,11 @@
 							@foreach($services as $service)
 							<tr class="appElem">
 								<td class="text-center">{{ $service->name }}</td>
+<<<<<<< HEAD
+								<td class="text-center">{{ $service->date) }}</td>
+=======
 								<td class="text-center">{{ $service->date }}</td>
+>>>>>>> 50944d3772a4ecf53e2e9f823198c8aeb11367c6
 								<td class="text-center">{{ $service->status }}</td>
 								<td class="text-center">
 									<button class="btn btn-primary confirm" 
