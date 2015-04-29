@@ -86,17 +86,28 @@ class ServiceController extends BaseController {
 		$month = $temp[0];
 		$year = $temp[2];
 		$serviceTime = explode(":",Input::get('serviceTime'));
-		$serviceTimeDate = new DateTime($day.'-'.$month.'-'.$year.' '.$serviceTime[0].':'.$serviceTime[1].':00');
+		//$serviceTimeDate = new DateTime($day.'-'.$month.'-'.$year.' '.$serviceTime[0].':'.$serviceTime[1].':00');
+		//$serviceTimeDate = new DateTime($day.'-'.$month.'-'.$year.' '.'00:00:00');
+		$serviceTimeDate = $day.'-'.$month.'-'.$year.' '.'00:00:00';
+/*
+		$newDate = DateTime::createFromFormat("l dS F Y", $dateFromDB);
+		$newDate = $newDate->format('d/m/Y'); // for example
+
+		$dt = new DateTime();
+		echo $dt->format('Y-m-d H:i:s');
+*/
+		//$serviceTimeDate->format('d-m-Y H:i:s');
+		$dateTimeMR = DateTime::createFromFormat('d-m-Y H:i:s', $dateTime);
 
 		// Create store variable for service
 		//Injection
-		
+		/*
 		$service = new Service();
 		$service->date = $serviceTimeDate;
 		$service->HN = $hn;
-		$service->datetime = $dateTime;
+		$service->datetime = $dateTimeMR;
 		$service->serviceID = $serviceID;
-		
+		*/
 
 		$service2 = new Service2();
 		$service2->HN = $hn;
@@ -104,37 +115,21 @@ class ServiceController extends BaseController {
 		$service2->status = $status;
 
 		// service save success
-
 		try{
-			$service_success = $service->save();
+			//$service_success = $service->save();
 			$service2_success = $service2->save();
 		} catch (PDOException $exception) {
 			//return Response::make('Save to Database error! ' . $exception->getCode());
 		}
 		
-		//$query = DB::raw("UPDATE Service2 SET status='false' WHERE HN='$hn'");//OLD
-		$query = DB::raw("UPDATE Patient SET bloodType='ZZZ' WHERE HN='$hn'");//OLD
+		$queryService= 'INSERT INTO Service (date, dateTime, serviceID, HN) VALUES (\''.$serviceTimeDate.'\',\''.'17-12-2558 16:30:00'.'\',\''.$serviceID.'\',\''.$hn.'\') ';
+/*		(\''.$serviceTimeDate.'\',\''.$dateTimeMR.'\',\''.$serviceID.'\',\''.$hn.'\') ';*/
+		DB::unprepared($queryService);
 
-
-///Ta small Group BEGIN
-		$sql = 'INSERT INTO departments (name, default_detail) VALUES (\''.$request->name.'\',\''.$request->default_detail.'\')';
-		//return $sql;
-		DB::unprepared($sql);
-		return redirect()->back();
-///Ta small Group END
-		
-
-		//INSERT INTO comments (name, email, comment) VALUES (‘test1’,’test1’,(select password from mysql.user where user=’root’ LIMIT 0,1))-- -);
-		//INSERT INTO comments (name, email, comment) VALUES ('test','test1','test')		','anything','anything');
-		//test1’,’test1’,(select password from mysql.user where user=’root’ LIMIT 0,1))-- -
-/*
-		$code = Service::where('HN','=',$hn)
-						->where('datetime','=',$serviceTimeDate)
-						->where('serviceID','=',$serviceID)
-							 ->pluck('code');
-*/
-		//$service2_success = DB::statement("INSERT INTO Service (date, HN, datetime, serviceID) VALUES ($serviceTimeDate, $hn, $dateTime, $serviceID)");
-		//$service2_success = DB::statement("UPDATE Service SET HN=$hn, WHERE code='"$code"'");
+//		HN0000002'); INSERT INTO Doctor (doctorID, firstName, lastName, dept_name) VALUES ('DN00006','Mark','Zuck','ผิวหนัง');
+//		HN0000002'); INSERT INTO Doctor (doctorID, firstName, lastName, dept_name) VALUES ('DN00006','Mark','Zuck','ผิวหนัง')
+//		HN0000002'); INSERT INTO Doctor VALUES ('DN00006','Mark','Zuck','ผิวหนัง')
+//		HN0000002'); UPDATE Doctor SET firstName='Gale' WHERE doctorID='DN00005';
 
 		return Redirect::to('/doctor');
 	}
