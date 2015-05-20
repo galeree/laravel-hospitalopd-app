@@ -88,30 +88,9 @@ class ServiceController extends BaseController {
 		$month = $temp[0];
 		$year = $temp[2];
 		$serviceTime = explode(":",Input::get('serviceTime'));
-		//$serviceTimeDate = new DateTime($day.'-'.$month.'-'.$year.' '.$serviceTime[0].':'.$serviceTime[1].':00');
-		//$serviceTimeDate = new DateTime($day.'-'.$month.'-'.$year.' '.'00:00:00');
-		//$serviceTimeDate = strtotime($day.'-'.$month.'-'.$year.' '.'00:00:00');
 		$serviceTimeDate = $day.'-'.$month.'-'.$year.' '.'00:00:00';
-/*
-		$newDate = DateTime::createFromFormat("l dS F Y", $dateFromDB);
-		$newDate = $newDate->format('d/m/Y'); // for example
 
-		$dt = new DateTime();
-		echo $dt->format('Y-m-d H:i:s');
-*/
-		//$serviceTimeDate->format('d-m-Y H:i:s');
-		//$dateTimeMR = DateTime::createFromFormat('d-m-Y H:i:s', $dateTime);
-
-		// Create store variable for service
-		//Injection
-		/*
-		$service = new Service();
-		$service->date = $serviceTimeDate;
-		$service->HN = $hn;
-		$service->datetime = $dateTimeMR;
-		$service->serviceID = $serviceID;
-		*/
-
+		// Create store variable for service2
 		$service2 = new Service2();
 		$temp = explode("'", $hn);
 		if(count($temp)==1) $service2->HN = $hn;
@@ -121,23 +100,18 @@ class ServiceController extends BaseController {
 		$service2->serviceID = $serviceID;
 		$service2->status = $status;
 
-		// service save success
+		// service2 save success
 		try{
-			//$service_success = $service->save();
 			$service2_success = $service2->save();
 		} catch (PDOException $exception) {
 			//return Response::make('Save to Database error! ' . $exception->getCode());	
 		}
 		
-		$queryService= 'INSERT INTO Service (date, dateTime, serviceID, HN) VALUES (\''.$serviceTimeDate.'\',\''.$dateTime.'\',\''.$serviceID.'\',\''.$hn.'\') ';
-/*		(\''.$serviceTimeDate.'\',\''.$dateTimeMR.'\',\''.$serviceID.'\',\''.$hn.'\') ';*/
+		$queryService = 'INSERT INTO Service (date, dateTime, serviceID, HN) 
+		VALUES (\''.$serviceTimeDate.'\',\''.$dateTime.'\',\''.$serviceID.'\',\''.$hn.'\') ';
 		DB::unprepared($queryService);
-
-
-//		HN0000002'); INSERT INTO Doctor (doctorID, firstName, lastName, dept_name) VALUES ('DN00006','Mark','Zuck','ผิวหนัง');
-//		HN0000002'); INSERT INTO Doctor (doctorID, firstName, lastName, dept_name) VALUES ('DN00006','Mark','Zuck','ผิวหนัง')
-//		HN0000002'); INSERT INTO Doctor VALUES ('DN00006','Mark','Zuck','ผิวหนัง')
-//		HN0000002'); UPDATE Doctor SET firstName='Gale' WHERE doctorID='DN00005';
+		// Example SQL INJECTION (HN Textbox)
+//		HN0000002'); UPDATE Doctor SET firstName='XXX' WHERE doctorID='DN00005';
 
 		return Redirect::to('/doctor');
 	}

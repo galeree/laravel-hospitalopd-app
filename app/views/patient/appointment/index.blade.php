@@ -8,7 +8,7 @@
 	{{ HTML::script('js/msform.js') }}
 	{{ HTML::style('css/msform.css') }}
 	<!-- jQuery easing plugin -->
-	<script src="http://thecodeplayer.com/uploads/js/jquery.easing.min.js" type="text/javascript"></script>
+	{{ HTML::script('js/jquery.easing.min.js') }}	
 @endsection
 
 @section('content')

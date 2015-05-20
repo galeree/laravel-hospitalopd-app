@@ -21,11 +21,11 @@
 <body class="custom" style="background-color: #2ecc71">
 	@yield('content')
         
-	{{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.js') }}
-    {{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js') }}
-    {{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.js') }}
-    {{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.min.js') }}
-    {{ HTML::script('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/localization/messages_TH.js') }}
+    {{ HTML::script('js/jquery.validate.js') }}
+    {{ HTML::script('js/jquery.validate.min.js') }}
+    {{ HTML::script('js/additional-methods.js') }}
+    {{ HTML::script('js/additional-methods.min.js') }}
+    {{ HTML::script('js/messages_TH.js') }}
    	{{ HTML::script('js/form.js') }}
 </body>
 </html>
