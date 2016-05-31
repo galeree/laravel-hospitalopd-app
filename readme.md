@@ -2,7 +2,7 @@
 A hospital OPD application that have two user role including patient and doctor.
 
 # Feature
-- User register and signin
+- User can register, signin and signout of system
 - Patient can manage appointment, medical service, get scheduled and get his/her doctor list.
 - Doctor can manage schedule, appointment and medical service.
 
