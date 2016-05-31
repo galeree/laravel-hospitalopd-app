@@ -19,3 +19,5 @@ A hospital OPD application that have two user role including patient and doctor.
   - <b>controllers</b>  Contains application logic and authentication logic.
   - <b>routes.php</b>    Contains route file for each url.
 - <b>public</b>         Contains javascript and css file.
+
+# Screenshot
