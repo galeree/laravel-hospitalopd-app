@@ -21,6 +21,4 @@ A hospital OPD application that have two user role including patient and doctor.
 - <b>public</b>         Contains javascript and css file.
 
 ## Screenshots
-![](/screenshot/login.png)
 ![](/screenshot/menu.png)
-![](/screenshot/appointment.png)
