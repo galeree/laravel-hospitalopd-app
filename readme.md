@@ -1,18 +1,18 @@
-# Hospital OPD webapp
+## Hospital OPD webapp
 A hospital OPD application that have two user role including patient and doctor.
 
-# Feature
+## Feature
 - User can register, signin and signout of system
 - Patient can manage appointment, medical service, get scheduled and get his/her doctor list.
 - Doctor can manage schedule, appointment and medical service.
 
-# Environment
+## Environment
 - <b>Laravel</b>   Backend framework
 - <b>MySQL</b>     Database
 - <b>AngularJS</b> Frontend framework
 - <b>Bootstrap</b> CSS framework
 
-# Structure
+## Structure
 - <b>app</b>
   - <b>models</b>       Contains model to interact with  database.
   - <b>views</b>        Contains view to show.
@@ -20,4 +20,4 @@ A hospital OPD application that have two user role including patient and doctor.
   - <b>routes.php</b>    Contains route file for each url.
 - <b>public</b>         Contains javascript and css file.
 
-# Screenshot
+## Screenshots
